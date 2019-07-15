@@ -7,6 +7,7 @@ namespace Shopping_Spree
     public class Product
     {
         private string name;
+        private decimal cost;
 
         public string Name
         {
@@ -33,7 +34,32 @@ namespace Shopping_Spree
             }
 
         }
-        public decimal Cost { get; private set; }
+
+        public decimal Cost
+        {
+            get => cost;
+            private set
+            {
+                if (value<0)
+                {
+                    try
+                    {
+                        throw new ArgumentException("Money cannot be negative");
+                    }
+                    catch (ArgumentException e)
+                    {
+                        Console.WriteLine(e.Message);
+                        Environment.Exit(0);
+                    }
+                }
+
+                else
+                {
+                    cost = value;
+                }
+            } 
+
+        }
 
         public Product(string name, decimal cost)
         {

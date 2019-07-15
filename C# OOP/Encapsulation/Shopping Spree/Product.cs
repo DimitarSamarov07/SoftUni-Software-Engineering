@@ -11,11 +11,19 @@ namespace Shopping_Spree
         public string Name
         {
             get => name;
-            set
+            private set
             {
-                if (string.IsNullOrEmpty(value))
+                if (string.IsNullOrWhiteSpace(value))
                 {
-                    ArgumentException pesho = new ArgumentException("name");
+                    try
+                    {
+                        throw new ArgumentException("Name cannot be empty");
+                    }
+                    catch (Exception e)
+                    {
+                        Console.WriteLine(e.Message);
+                        Environment.Exit(0);
+                    }
                 }
 
                 else
@@ -25,14 +33,10 @@ namespace Shopping_Spree
             }
 
         }
-        public double Cost { get; set; }
+        public decimal Cost { get; private set; }
 
-        public Product(string name,double cost)
+        public Product(string name, decimal cost)
         {
-            if (name==null)
-            {
-               ArgumentException pesho = new ArgumentException("name");
-            }
             this.Name = name;
             this.Cost = cost;
         }

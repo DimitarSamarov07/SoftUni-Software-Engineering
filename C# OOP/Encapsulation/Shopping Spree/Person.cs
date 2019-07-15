@@ -8,14 +8,10 @@ namespace Shopping_Spree
     public class Person
     {
         private string name;
-        private double money;
+        private decimal money;
 
-        public Person(string name,double money)
+        public Person(string name,decimal money)
         {
-            if (name==null)
-            {
-                ArgumentException ex = new ArgumentException("name");
-            }
             this.Name = name;
             this.Money = money;
             this.BagOfProducts= new List<Product>();
@@ -24,14 +20,21 @@ namespace Shopping_Spree
         {
             get
             {
-                return name; 
-
+                return name;
             }
             set
             {
                 if (string.IsNullOrWhiteSpace(value))
                 {
-                    ArgumentException ex = new ArgumentException("name");
+                    try
+                    {
+                        throw new ArgumentException("Name cannot be empty");
+                    }
+                    catch (ArgumentException e)
+                    {
+                        Console.WriteLine(e.Message);
+                        Environment.Exit(0);
+                    }
                 }
 
                 else
@@ -41,7 +44,7 @@ namespace Shopping_Spree
             }
         }
 
-        public double Money
+        public decimal Money
         {
             get
             {
@@ -52,7 +55,15 @@ namespace Shopping_Spree
             {
                 if (value<0)
                 {
-                    ArgumentException ex = new ArgumentException("money");
+                    try
+                    {
+                        throw new ArgumentException("Money cannot be negative");
+                    }
+                    catch (ArgumentException e)
+                    {
+                        Console.WriteLine(e.Message);
+                        Environment.Exit(0);
+                    }
                 }
 
                 else
@@ -62,6 +73,6 @@ namespace Shopping_Spree
             }
         }
 
-        public List<Product> BagOfProducts { get; set; }
+        public List<Product> BagOfProducts { get; private set; }
     }
 }

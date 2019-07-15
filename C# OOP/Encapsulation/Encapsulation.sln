@@ -7,8 +7,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Class_Box_Data", "Class Box
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Persons", "Persons\Persons.csproj", "{97DB8E68-2F78-4B98-878C-D7EED18461A1}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AnimalFarm", "AnimalFarm\AnimalFarm.csproj", "{2B264172-F696-4F14-8576-4D014CA293A4}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ShoppingSpree", "Shopping Spree\ShoppingSpree.csproj", "{45E9A529-B235-432B-B6A3-FE18082022EA}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PizzaCalories", "Pizza Calories\PizzaCalories.csproj", "{DCC3A4DC-10A4-4044-964A-52F990A6BA6B}"
@@ -27,10 +25,6 @@ Global
 		{97DB8E68-2F78-4B98-878C-D7EED18461A1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{97DB8E68-2F78-4B98-878C-D7EED18461A1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{97DB8E68-2F78-4B98-878C-D7EED18461A1}.Release|Any CPU.Build.0 = Release|Any CPU
-		{2B264172-F696-4F14-8576-4D014CA293A4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{2B264172-F696-4F14-8576-4D014CA293A4}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{2B264172-F696-4F14-8576-4D014CA293A4}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{2B264172-F696-4F14-8576-4D014CA293A4}.Release|Any CPU.Build.0 = Release|Any CPU
 		{45E9A529-B235-432B-B6A3-FE18082022EA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{45E9A529-B235-432B-B6A3-FE18082022EA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{45E9A529-B235-432B-B6A3-FE18082022EA}.Release|Any CPU.ActiveCfg = Release|Any CPU

@@ -7,38 +7,42 @@ namespace Shopping_Spree
 {
     public class StartUp
     {
-        
+
         static void Main(string[] args)
-        { 
+        {
             List<Person> guys = new List<Person>();
             List<Product> products = new List<Product>();
-            for (int i = 0; i < 2; i++)
-            {
-                string[] input = Console.ReadLine()
-                    .Split(";",StringSplitOptions.RemoveEmptyEntries)
-                    .ToArray();
-                for (int j = 0; j < input.Length; j++)
-                {
-                    string[] splitter = input[j].Split("=").ToArray();
-                    string name = splitter[0];
-                    decimal value = decimal.Parse(splitter[1]);
-                    if (i == 0)
-                    {
-                        Person toAdd = new Person(name, value);
-                        guys.Add(toAdd);
-                    }
 
-                    else
-                    {
-                        Product toAdd = new Product(name,value);
-                        products.Add(toAdd);
-                    }
-                }
-            }
-            string line;
-            while ((line=Console.ReadLine())!="END")
+            string[] inputPeople = Console.ReadLine()
+                .Split(";", StringSplitOptions.RemoveEmptyEntries)
+                .ToArray();
+
+            string[] inputProducts = Console.ReadLine()
+                .Split(";", StringSplitOptions.RemoveEmptyEntries)
+                .ToArray();
+            for (int i = 0; i < inputPeople.Length; i++)
             {
-                if (line.ToUpper()=="END")
+                
+                string[] peopleSplitter = inputPeople[i].Split("=").ToArray();
+                string guyName = peopleSplitter[0];
+                decimal guyValue = decimal.Parse(peopleSplitter[1]);
+                Person toAddGuy = new Person(guyName, guyValue);
+                guys.Add(toAddGuy);
+
+            }
+            for (int j = 0; j < inputProducts.Length; j++)
+            {
+                string[] productSplitter = inputProducts[j].Split("=").ToArray();
+                string productName = productSplitter[0];
+                decimal productValue = decimal.Parse(productSplitter[1]);
+                Product toAddProd = new Product(productName,productValue);
+                products.Add(toAddProd);
+            }
+
+            string line;
+            while ((line = Console.ReadLine()) != "END")
+            {
+                if (line.ToUpper() == "END")
                 {
                     break;
                 }
@@ -52,7 +56,7 @@ namespace Shopping_Spree
                 decimal price = currentProduct.Cost;
                 decimal money = currentPerson.Money;
 
-                if (money>=price)
+                if (money >= price)
                 {
                     currentPerson.Money -= price;
                     currentPerson.BagOfProducts.Add(currentProduct);
@@ -68,7 +72,7 @@ namespace Shopping_Spree
                     catch (ArgumentException e)
                     {
                         Console.WriteLine(e.Message);
-                        
+
                     }
                 }
             }
@@ -77,7 +81,7 @@ namespace Shopping_Spree
             {
                 if (guy.BagOfProducts.Any())
                 {
-                    Console.WriteLine($"{guy.Name} - {String.Join(", ",guy.BagOfProducts)}");
+                    Console.WriteLine($"{guy.Name} - {String.Join(", ", guy.BagOfProducts)}");
                 }
 
                 else

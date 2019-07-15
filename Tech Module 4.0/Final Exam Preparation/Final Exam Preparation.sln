@@ -1,0 +1,55 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.28729.10
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Song Encryption", "Song Encryption\Song Encryption.csproj", "{B9751B88-72FB-471E-BC3B-A0423E4AAB19}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Vapor Winter Sale", "Vapor Winter Sale\Vapor Winter Sale.csproj", "{9C449221-E071-4561-A457-989E42F61140}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Activation Keys", "Activation Keys\Activation Keys.csproj", "{E704747A-8BDD-45CD-89C3-E5CFB508C643}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dictionary", "Dictionary\Dictionary.csproj", "{F25E80CE-F999-486C-AEE7-042D9A0F081F}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Deciphering", "Deciphering\Deciphering.csproj", "{2CAE96FC-4419-4DAD-B0C8-52B34A01F980}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Concert", "Concert\Concert.csproj", "{8C26A44D-29D0-4F0F-9680-57AFC39E3599}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B9751B88-72FB-471E-BC3B-A0423E4AAB19}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B9751B88-72FB-471E-BC3B-A0423E4AAB19}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B9751B88-72FB-471E-BC3B-A0423E4AAB19}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B9751B88-72FB-471E-BC3B-A0423E4AAB19}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9C449221-E071-4561-A457-989E42F61140}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9C449221-E071-4561-A457-989E42F61140}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9C449221-E071-4561-A457-989E42F61140}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9C449221-E071-4561-A457-989E42F61140}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E704747A-8BDD-45CD-89C3-E5CFB508C643}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E704747A-8BDD-45CD-89C3-E5CFB508C643}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E704747A-8BDD-45CD-89C3-E5CFB508C643}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E704747A-8BDD-45CD-89C3-E5CFB508C643}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F25E80CE-F999-486C-AEE7-042D9A0F081F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F25E80CE-F999-486C-AEE7-042D9A0F081F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F25E80CE-F999-486C-AEE7-042D9A0F081F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F25E80CE-F999-486C-AEE7-042D9A0F081F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2CAE96FC-4419-4DAD-B0C8-52B34A01F980}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2CAE96FC-4419-4DAD-B0C8-52B34A01F980}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2CAE96FC-4419-4DAD-B0C8-52B34A01F980}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2CAE96FC-4419-4DAD-B0C8-52B34A01F980}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8C26A44D-29D0-4F0F-9680-57AFC39E3599}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8C26A44D-29D0-4F0F-9680-57AFC39E3599}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8C26A44D-29D0-4F0F-9680-57AFC39E3599}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8C26A44D-29D0-4F0F-9680-57AFC39E3599}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {1AB8D34F-3FDF-4FC2-8B27-B4CDC6E5F84A}
+	EndGlobalSection
+EndGlobal

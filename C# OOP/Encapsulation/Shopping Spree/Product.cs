@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Shopping_Spree
 {
@@ -63,8 +61,8 @@ namespace Shopping_Spree
 
         public Product(string name, decimal cost)
         {
-            this.Name = name;
-            this.Cost = cost;
+            Name = name;
+            Cost = cost;
         }
 
         public override string ToString()

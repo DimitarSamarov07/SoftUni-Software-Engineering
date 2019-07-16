@@ -11,7 +11,6 @@ namespace PersonInfo
             IPerson person = new Citizen(name, age);
             Console.WriteLine(person.Name);
             Console.WriteLine(person.Age);
-
         }
     }
 }

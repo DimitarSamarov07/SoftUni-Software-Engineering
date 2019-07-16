@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cars", "Cars\Cars.csproj", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Define An Interface IPerson", "Define An Interface IPerson\Define An Interface IPerson.csproj", "{C06961B3-CE21-4F4D-AC9B-B7B7EDED4D1C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ferrari", "Ferrari\Ferrari.csproj", "{291608CC-6476-440C-AE14-F8071E467CC2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{C06961B3-CE21-4F4D-AC9B-B7B7EDED4D1C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C06961B3-CE21-4F4D-AC9B-B7B7EDED4D1C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C06961B3-CE21-4F4D-AC9B-B7B7EDED4D1C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{291608CC-6476-440C-AE14-F8071E467CC2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{291608CC-6476-440C-AE14-F8071E467CC2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{291608CC-6476-440C-AE14-F8071E467CC2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{291608CC-6476-440C-AE14-F8071E467CC2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

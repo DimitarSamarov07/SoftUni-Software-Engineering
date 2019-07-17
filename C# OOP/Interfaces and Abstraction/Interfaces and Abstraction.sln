@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Shapes", "Shapes\Shapes.csp
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cars", "Cars\Cars.csproj", "{3E903212-1467-4E63-953F-D9E84712AC42}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Define An Interface IPerson", "Define An Interface IPerson\Define An Interface IPerson.csproj", "{C06961B3-CE21-4F4D-AC9B-B7B7EDED4D1C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DefineAnInterfaceIPerson", "Define An Interface IPerson\DefineAnInterfaceIPerson.csproj", "{C06961B3-CE21-4F4D-AC9B-B7B7EDED4D1C}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ferrari", "Ferrari\Ferrari.csproj", "{291608CC-6476-440C-AE14-F8071E467CC2}"
 EndProject
@@ -16,6 +16,8 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BorderControl", "Border Control\BorderControl.csproj", "{5F4FA290-7D14-409D-960B-1A405B582FB4}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BirthdayCelebrations", "Birthday Celebrations\BirthdayCelebrations.csproj", "{4B4C32F3-6CBB-45DE-A5B1-ED2939152C21}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FoodShortage", "Food Shortage\FoodShortage.csproj", "{9A2030AD-67B2-47C2-9A17-F82A642B6FEC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -51,6 +53,10 @@ Global
 		{4B4C32F3-6CBB-45DE-A5B1-ED2939152C21}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4B4C32F3-6CBB-45DE-A5B1-ED2939152C21}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4B4C32F3-6CBB-45DE-A5B1-ED2939152C21}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9A2030AD-67B2-47C2-9A17-F82A642B6FEC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9A2030AD-67B2-47C2-9A17-F82A642B6FEC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9A2030AD-67B2-47C2-9A17-F82A642B6FEC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9A2030AD-67B2-47C2-9A17-F82A642B6FEC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -11,16 +11,28 @@ namespace Shapes
         private double Width
         {
             get => width;
-            set { width = value; }
+            set
+            {
+                if (value > 0)
+                {
+                    width = value;
+                }
+            }
         }
 
         private double Height
         {
             get => height;
-            set { height = value; }
+            set
+            {
+                if (value > 0)
+                {
+                    height = value;
+                }
+            }
         }
 
-        public Rectangle(double width,double height)
+        public Rectangle(double width, double height)
         {
             this.Width = width;
             this.Height = height;

@@ -16,8 +16,15 @@ namespace Shapes
         private double Radius
         {
             get => radius;
-            set => radius = value;
-        }
+            set
+            {
+                if (value>0)
+                {
+                    radius = value;
+                }
+            }
+        
+    }
 
         public override double CalculatePerimeter()
         {

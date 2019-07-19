@@ -22,9 +22,14 @@ namespace Shapes
                 {
                     radius = value;
                 }
+                else
+                {
+                    throw new NullReferenceException();
+                }
+                
             }
         
-    }
+        }
 
         public override double CalculatePerimeter()
         {

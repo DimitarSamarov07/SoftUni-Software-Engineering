@@ -17,6 +17,10 @@ namespace Shapes
                 {
                     width = value;
                 }
+                else
+                {
+                    throw new NullReferenceException();
+                }
             }
         }
 
@@ -29,10 +33,14 @@ namespace Shapes
                 {
                     height = value;
                 }
+                else
+                {
+                    throw new NullReferenceException();
+                }
             }
         }
 
-        public Rectangle(double width, double height)
+        public Rectangle(double height, double width)
         {
             this.Width = width;
             this.Height = height;

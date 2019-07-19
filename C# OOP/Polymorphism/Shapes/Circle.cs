@@ -13,10 +13,10 @@ namespace Shapes
             this.Radius = radius;
         }
 
-        private double Radius
+        public double Radius
         {
             get => radius;
-            set
+            private set
             {
                 if (value>0)
                 {

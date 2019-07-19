@@ -8,10 +8,10 @@ namespace Shapes
     {
         private double width;
         private double height;
-        private double Width
+        public double Width
         {
             get => width;
-            set
+            private set
             {
                 if (value > 0)
                 {
@@ -20,10 +20,10 @@ namespace Shapes
             }
         }
 
-        private double Height
+        public double Height
         {
             get => height;
-            set
+            private set
             {
                 if (value > 0)
                 {

@@ -9,6 +9,7 @@ namespace Shapes
         private double radius;
 
         public Circle(double radius)
+        :base()
         {
             this.Radius = radius;
         }

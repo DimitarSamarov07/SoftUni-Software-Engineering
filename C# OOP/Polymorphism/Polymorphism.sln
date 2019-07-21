@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shapes", "Shapes\Shapes.csp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Vehicles", "Vehicles\Vehicles.csproj", "{BD095827-B827-40D4-814C-BE27225E0F6E}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VehiclesExtension", "Vehicles Extension\VehiclesExtension.csproj", "{1345E298-8057-426F-9D54-19687AAE1FF4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{BD095827-B827-40D4-814C-BE27225E0F6E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BD095827-B827-40D4-814C-BE27225E0F6E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BD095827-B827-40D4-814C-BE27225E0F6E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1345E298-8057-426F-9D54-19687AAE1FF4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1345E298-8057-426F-9D54-19687AAE1FF4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1345E298-8057-426F-9D54-19687AAE1FF4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1345E298-8057-426F-9D54-19687AAE1FF4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

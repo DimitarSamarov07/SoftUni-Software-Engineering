@@ -9,7 +9,7 @@ namespace Vehicles
         public Truck(double fuelQuantity, double fuelConsumptionPerKm)
             : base(fuelQuantity, fuelConsumptionPerKm)
         {
-            FuelQuantity = FuelQuantity;
+
         }
         
         public override double FuelConsumptionIncrease { get; set; } = 1.6;

@@ -9,27 +9,18 @@ namespace Shapes
         private double radius;
 
         public Circle(double radius)
-        :base()
+        : base()
         {
             this.Radius = radius;
         }
 
-        public double Radius
+        private double Radius
         {
             get => radius;
-            private set
+            set
             {
-                if (value>0)
-                {
-                    radius = value;
-                }
-                else
-                {
-                    throw new NullReferenceException();
-                }
-                
+                radius = value;
             }
-        
         }
 
         public override double CalculatePerimeter()
@@ -42,7 +33,7 @@ namespace Shapes
             return Math.PI * Radius * Radius;
         }
 
-        public override string Draw()
+        public sealed override string Draw()
         {
             return base.Draw() + "Circle";
         }

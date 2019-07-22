@@ -8,39 +8,26 @@ namespace Shapes
     {
         private double width;
         private double height;
-        public double Width
+
+        private double Width
         {
             get => width;
-            private set
+            set
             {
-                if (value > 0)
-                {
-                    width = value;
-                }
-                else
-                {
-                    throw new NullReferenceException();
-                }
+                width = value;
             }
         }
 
-        public double Height
+        private double Height
         {
             get => height;
-            private set
+            set
             {
-                if (value > 0)
-                {
-                    height = value;
-                }
-                else
-                {
-                    throw new NullReferenceException();
-                }
+                height = value;
             }
         }
 
-        public Rectangle(double height, double width)
+        public Rectangle(double width, double height)
         {
             this.Width = width;
             this.Height = height;
@@ -56,7 +43,7 @@ namespace Shapes
             return Width * Height;
         }
 
-        public override string Draw()
+        public sealed override string Draw()
         {
             return base.Draw() + "Rectangle";
         }

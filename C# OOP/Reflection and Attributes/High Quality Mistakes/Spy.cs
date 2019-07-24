@@ -45,11 +45,11 @@ public class Spy
         {
             sb.AppendLine($"{publicField.Name} must be private!");
         }
-        foreach (var publicMethod in nonPublicMethods.Where(m=>m.Name.StartsWith("get")))
+        foreach (var publicMethod in nonPublicMethods.Where(m => m.Name.StartsWith("get")))
         {
             sb.AppendLine($"{publicMethod.Name} have to be public!");
         }
-        foreach (var privateMethod in publicMethods.Where(m=>m.Name.StartsWith("set")))
+        foreach (var privateMethod in publicMethods.Where(m => m.Name.StartsWith("set")))
         {
             sb.AppendLine($"{privateMethod.Name} have to be private!");
         }

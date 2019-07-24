@@ -17,6 +17,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Coding Tracker", "Coding Tr
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CommandPattern", "CommandPattern\CommandPattern.csproj", "{47CFAD8D-1003-4101-B951-15DC942FD098}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ValidationAttributes", "ValidationAttributes\ValidationAttributes.csproj", "{64F72652-B383-4345-8017-4E6621E2A45D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -51,6 +53,10 @@ Global
 		{47CFAD8D-1003-4101-B951-15DC942FD098}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{47CFAD8D-1003-4101-B951-15DC942FD098}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{47CFAD8D-1003-4101-B951-15DC942FD098}.Release|Any CPU.Build.0 = Release|Any CPU
+		{64F72652-B383-4345-8017-4E6621E2A45D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{64F72652-B383-4345-8017-4E6621E2A45D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{64F72652-B383-4345-8017-4E6621E2A45D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{64F72652-B383-4345-8017-4E6621E2A45D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -77,13 +77,13 @@ public class Spy
     {
         Type classType = Type.GetType(className);
         StringBuilder sb = new StringBuilder();
-        MethodInfo[] allMethods = classType.GetMethods(BindingFlags.Instance|BindingFlags.Public|BindingFlags.NonPublic);
+        MethodInfo[] allMethods = classType.GetMethods(BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic);
 
-        foreach (var method in allMethods.Where(m=>m.Name.StartsWith("get")))
+        foreach (var method in allMethods.Where(m => m.Name.StartsWith("get")))
         {
             sb.AppendLine($"{method.Name} will return {method.ReturnType}");
         }
-        foreach (var method in allMethods.Where(m=>m.Name.StartsWith("set")))
+        foreach (var method in allMethods.Where(m => m.Name.StartsWith("set")))
         {
             sb.AppendLine($"{method.Name} will set field of {method.GetParameters().First().ParameterType}");
         }

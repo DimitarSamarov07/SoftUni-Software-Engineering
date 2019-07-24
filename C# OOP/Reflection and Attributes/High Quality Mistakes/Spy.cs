@@ -54,6 +54,6 @@ public class Spy
             sb.AppendLine($"{privateMethod.Name} have to be private!");
         }
 
-        return sb.ToString().TrimEnd();
+        return sb.ToString().Trim();
     }
 }

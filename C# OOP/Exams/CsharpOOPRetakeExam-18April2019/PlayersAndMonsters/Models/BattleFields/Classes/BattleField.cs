@@ -12,53 +12,58 @@ namespace PlayersAndMonsters.Models.BattleFields.Classes
     {
         public void Fight(IPlayer attackPlayer, IPlayer enemyPlayer)
         {
-            if (attackPlayer.Health==0|| enemyPlayer.Health==0)
+            while (true)
             {
-                throw new ArgumentException("Player is dead!");
-            }
-            else if (attackPlayer.GetType().Name == "Beginner" || enemyPlayer.GetType().Name == "Beginner")
-            {
-                if (attackPlayer.GetType().Name == "Beginner")
+                if (attackPlayer.IsDead||enemyPlayer.IsDead)
                 {
-                    attackPlayer.Health += 40;
-                    foreach (var card in attackPlayer.CardRepository.Cards)
+                    throw new ArgumentException("Player is dead!");
+                } 
+                if (attackPlayer.GetType().Name == "Beginner" || enemyPlayer.GetType().Name == "Beginner")
+                {
+                    if (attackPlayer.GetType().Name == "Beginner")
                     {
-                        card.DamagePoints += 30;
+                        attackPlayer.Health += 40;
+                        foreach (var card in attackPlayer.CardRepository.Cards)
+                        {
+                            card.DamagePoints += 30;
+                        }
+                    }
+
+                    else
+                    {
+                        enemyPlayer.Health += 40;
+                        foreach (var card in enemyPlayer.CardRepository.Cards)
+                        {
+                            card.DamagePoints += 30;
+                        }
                     }
                 }
 
-                else
+                foreach (var item in attackPlayer.CardRepository.Cards)
                 {
-                    enemyPlayer.Health += 40;
-                    foreach (var card in enemyPlayer.CardRepository.Cards)
-                    {
-                        card.DamagePoints += 30;
-                    }
+                    attackPlayer.Health += item.HealthPoints;
+                }
+                foreach (var item in enemyPlayer.CardRepository.Cards)
+                {
+                    enemyPlayer.Health += item.HealthPoints;
+                }
+
+                int attackerDamage = attackPlayer.CardRepository.Cards.Sum(c => c.DamagePoints);
+                int enemyDamage = enemyPlayer.CardRepository.Cards.Sum(c => c.DamagePoints);
+
+                enemyPlayer.TakeDamage(attackerDamage);
+                if (enemyPlayer.Health == 0)
+                {
+                    break;
+                }
+
+                attackPlayer.TakeDamage(enemyDamage);
+                if (attackPlayer.Health == 0)
+                {
+                    break;
                 }
             }
-
-            foreach (var item in attackPlayer.CardRepository.Cards)
-            {
-                attackPlayer.Health += item.HealthPoints;
-            }
-            foreach (var item in enemyPlayer.CardRepository.Cards)
-            {
-                enemyPlayer.Health += item.HealthPoints;
-            }
-
-            int attackerDamage = attackPlayer.CardRepository.Cards.Sum(c => c.HealthPoints);
-            int enemyDamage = enemyPlayer.CardRepository.Cards.Sum(c => c.HealthPoints);
-
-            enemyPlayer.TakeDamage(attackerDamage);
-            if (enemyPlayer.Health==0)
-            {
-                return;
-            }
-            attackPlayer.TakeDamage(enemyDamage);
-            if (attackPlayer.Health == 0)
-            {
-                return;
-            }
+            
         }
     }
 }

@@ -9,8 +9,8 @@ namespace PlayersAndMonsters.Repositories.Classes
 {
     public class CardRepository : ICardRepository
     {
-        private List<ICard> cards;
-        public int Count => Cards.Count;
+        private readonly List<ICard> cards;
+        
 
         public CardRepository()
         {
@@ -18,7 +18,7 @@ namespace PlayersAndMonsters.Repositories.Classes
         }
 
         public IReadOnlyCollection<ICard> Cards => cards;
-        
+        public int Count => Cards.Count;
 
         public void Add(ICard card)
         {
@@ -26,8 +26,7 @@ namespace PlayersAndMonsters.Repositories.Classes
             {
                 throw new ArgumentException("Card cannot be null!");
             }
-
-            else if (Cards.Any(p => p.Name == card.Name))
+            if (Cards.Any(p => p.Name == card.Name))
             {
                 throw new ArgumentException($"Card {card.Name} already exists!");
             }
@@ -42,18 +41,7 @@ namespace PlayersAndMonsters.Repositories.Classes
                 throw new ArgumentException("Card cannot be null!");
             }
 
-            else
-            {
-                if (cards.Contains(card))
-                {
-                    cards.Remove(card);
-                    return true;
-                }
-                else
-                {
-                    return false;
-                }
-            }
+            return cards.Remove(card);
         }
 
         public ICard Find(string name)

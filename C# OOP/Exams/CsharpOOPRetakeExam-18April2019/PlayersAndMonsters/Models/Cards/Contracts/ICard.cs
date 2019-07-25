@@ -2,10 +2,10 @@
 {
     public interface ICard
     {
-        string Name { get; set; }
+        string Name { get; }
 
         int DamagePoints { get; set; }
 
-        int HealthPoints { get; set; }
+        int HealthPoints { get;}
     }
 }

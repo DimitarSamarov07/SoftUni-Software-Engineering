@@ -29,7 +29,7 @@ namespace PlayersAndMonsters
             ICardFactory fact = new CardFactory();
             ICard toAdd = fact.CreateCard(type, name);
             CardRepository.Add(toAdd);
-            return $"Successfully added card of type {toAdd.GetType().Name}Card with name: {toAdd.Name}";
+            return $"Successfully added card of type {toAdd.GetType().Name} with name: {toAdd.Name}";
         }
 
         public string AddPlayerCard(string username, string cardName)

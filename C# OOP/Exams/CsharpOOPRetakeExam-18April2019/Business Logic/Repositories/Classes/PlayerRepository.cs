@@ -24,7 +24,7 @@ namespace PlayersAndMonsters
             {
                 throw new ArgumentException("Player cannot be null");
             }
-            if (Players.Contains(player))
+            if (Players.Any(p=>p.Username==player.Username))
             {
                 throw new ArgumentException($"Player {player.Username} already exists!");
             }

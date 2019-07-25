@@ -1,4 +1,4 @@
-﻿namespace Structure.Core.Contracts
+﻿namespace BusinessLogic.Core.Contracts
 {
     public interface IManagerController
     {

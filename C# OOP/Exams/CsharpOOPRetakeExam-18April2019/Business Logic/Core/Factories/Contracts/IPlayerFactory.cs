@@ -1,6 +1,6 @@
-﻿using PlayersAndMonsters.Models.Players.Contracts;
+﻿
 
-namespace Structure.Core.Factories.Contracts
+namespace PlayersAndMonsters.Core.Factories.Contracts
 {
     public interface IPlayerFactory
     {

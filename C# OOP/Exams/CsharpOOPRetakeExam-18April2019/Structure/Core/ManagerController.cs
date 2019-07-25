@@ -1,9 +1,8 @@
-﻿namespace PlayersAndMonsters.Core
+﻿using System;
+using Structure.Core.Contracts;
+
+namespace PlayersAndMonsters.Core
 {
-    using System;
-
-    using Contracts;
-
     public class ManagerController : IManagerController
     {
         public ManagerController()

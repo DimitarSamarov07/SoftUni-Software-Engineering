@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Linq;
 using PlayersAndMonsters.Models.BattleFields.Contracts;
-using PlayersAndMonsters.Models.Players.Classes;
-using PlayersAndMonsters.Models.Players.Contracts;
 
 namespace PlayersAndMonsters.Models.BattleFields.Classes
 {
@@ -23,8 +21,8 @@ namespace PlayersAndMonsters.Models.BattleFields.Classes
                 {
                     card.DamagePoints += 30;
                 }
-            }
-            else if (enemyPlayer.GetType().Name == nameof(Beginner))
+            } 
+            if (enemyPlayer.GetType().Name == nameof(Beginner))
             {
                 enemyPlayer.Health += 40;
 

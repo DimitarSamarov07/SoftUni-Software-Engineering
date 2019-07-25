@@ -1,8 +1,6 @@
 ﻿using System;
-using PlayersAndMonsters.Models.Players.Contracts;
-using PlayersAndMonsters.Repositories.Contracts;
 
-namespace PlayersAndMonsters.Models.Players.Classes
+namespace PlayersAndMonsters
 {
     public abstract class Player:IPlayer
     {
@@ -50,7 +48,7 @@ namespace PlayersAndMonsters.Models.Players.Classes
             set => cardRepository = value;
         }
 
-        public bool IsDead { get; }
+        public bool IsDead { get; set; }
 
         public void TakeDamage(int damagePoints)
         {
@@ -62,7 +60,11 @@ namespace PlayersAndMonsters.Models.Players.Classes
             {
                 Health -= damagePoints;
             }
-
+            else
+            {
+                Health = 0;
+                IsDead = true;
+            }
         }
     }
 }

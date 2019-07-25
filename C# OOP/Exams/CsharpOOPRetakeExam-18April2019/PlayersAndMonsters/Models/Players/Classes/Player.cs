@@ -10,7 +10,6 @@ namespace PlayersAndMonsters.Models.Players.Classes
         private string username;
         private int health;
         private ICardRepository cardRepository;
-        private bool isDead;
 
         public Player(ICardRepository cardRepository, string username, int health )
         {
@@ -52,11 +51,7 @@ namespace PlayersAndMonsters.Models.Players.Classes
             set => cardRepository = value;
         }
 
-        public bool IsDead
-        {
-            get => isDead;
-            private set => isDead = value;
-        }
+        public bool IsDead { get; }
 
         public void TakeDamage(int damagePoints)
         {
@@ -64,15 +59,9 @@ namespace PlayersAndMonsters.Models.Players.Classes
             {
                 throw new ArgumentException("Damage points cannot be less than zero.");
             }
-            
-            else if (Health-damagePoints>0)
+            if (Health-damagePoints>0)
             {
                 Health -= damagePoints;
-            }
-
-            else
-            {
-                Health = 0;
             }
 
         }

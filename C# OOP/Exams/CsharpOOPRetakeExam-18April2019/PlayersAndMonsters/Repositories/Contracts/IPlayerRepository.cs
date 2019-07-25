@@ -6,7 +6,7 @@
 
     public interface IPlayerRepository
     {
-        int Count { get; set; }
+        int Count { get;}
 
         IReadOnlyCollection<IPlayer> Players { get; }
 

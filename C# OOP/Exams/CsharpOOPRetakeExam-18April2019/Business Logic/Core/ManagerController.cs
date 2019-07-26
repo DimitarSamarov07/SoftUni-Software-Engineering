@@ -54,7 +54,7 @@ namespace PlayersAndMonsters
             StringBuilder sb = new StringBuilder();
             foreach (var player in PlayerRepository.Players)
             {
-                sb.AppendLine($"Username: {player.Username} - Health: {player.Health} – Cards {player.CardRepository.Count}");
+                sb.AppendLine($"Username: {player.Username} - Health: {player.Health} - Cards {player.CardRepository.Count}");
                 foreach (var card in player.CardRepository.Cards)
                 {
                     sb.AppendLine($"Card: {card.Name} - Damage: {card.DamagePoints}");

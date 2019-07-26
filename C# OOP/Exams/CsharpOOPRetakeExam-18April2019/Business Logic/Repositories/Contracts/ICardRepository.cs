@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
+using PlayersAndMonsters.Models.Cards.Contracts;
 
-namespace PlayersAndMonsters
+namespace PlayersAndMonsters.Repositories.Contracts
 {
     public interface ICardRepository
     {

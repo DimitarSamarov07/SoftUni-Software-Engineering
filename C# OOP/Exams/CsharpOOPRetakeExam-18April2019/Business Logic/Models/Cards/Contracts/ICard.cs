@@ -1,4 +1,4 @@
-﻿namespace PlayersAndMonsters
+﻿namespace PlayersAndMonsters.Models.Cards.Contracts
 {
     public interface ICard
     {

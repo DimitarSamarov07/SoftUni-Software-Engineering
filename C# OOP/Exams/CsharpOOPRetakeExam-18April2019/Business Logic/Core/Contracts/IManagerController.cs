@@ -1,4 +1,4 @@
-﻿namespace BusinessLogic.Core.Contracts
+﻿namespace PlayersAndMonsters.Core.Contracts
 {
     public interface IManagerController
     {

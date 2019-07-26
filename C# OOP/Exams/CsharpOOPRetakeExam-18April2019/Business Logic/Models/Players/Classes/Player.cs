@@ -1,6 +1,8 @@
 ﻿using System;
+using PlayersAndMonsters.Models.Players.Contracts;
+using PlayersAndMonsters.Repositories.Contracts;
 
-namespace PlayersAndMonsters
+namespace PlayersAndMonsters.Models.Players.Classes
 {
     public abstract class Player:IPlayer
     {

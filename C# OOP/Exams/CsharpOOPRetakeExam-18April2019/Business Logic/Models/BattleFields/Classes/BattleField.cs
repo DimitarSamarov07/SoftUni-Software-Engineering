@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Linq;
 using PlayersAndMonsters.Models.BattleFields.Contracts;
+using PlayersAndMonsters.Models.Players.Classes;
+using PlayersAndMonsters.Models.Players.Contracts;
 
 namespace PlayersAndMonsters.Models.BattleFields.Classes
 {

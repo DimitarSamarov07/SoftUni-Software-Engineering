@@ -1,7 +1,10 @@
 ﻿
 using PlayersAndMonsters.Core.Factories.Contracts;
+using PlayersAndMonsters.Models.Players.Classes;
+using PlayersAndMonsters.Models.Players.Contracts;
+using PlayersAndMonsters.Repositories.Classes;
 
-namespace PlayersAndMonsters
+namespace PlayersAndMonsters.Core.Factories.Classes
 {
     public class PlayerFactory:IPlayerFactory
     {

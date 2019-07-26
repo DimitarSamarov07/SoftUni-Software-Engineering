@@ -1,4 +1,6 @@
-﻿namespace PlayersAndMonsters.Models.BattleFields.Contracts
+﻿using PlayersAndMonsters.Models.Players.Contracts;
+
+namespace PlayersAndMonsters.Models.BattleFields.Contracts
 {
     public interface IBattleField
     {

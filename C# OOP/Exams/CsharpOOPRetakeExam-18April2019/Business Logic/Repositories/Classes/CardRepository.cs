@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using PlayersAndMonsters.Models.Cards.Contracts;
+using PlayersAndMonsters.Repositories.Contracts;
 
-namespace PlayersAndMonsters
+namespace PlayersAndMonsters.Repositories.Classes
 {
     public class CardRepository : ICardRepository
     {

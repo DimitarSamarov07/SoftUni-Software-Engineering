@@ -5,7 +5,7 @@ VisualStudioVersion = 16.0.29102.190
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Structure", "Structure\Structure.csproj", "{96289E6B-5B6E-4825-AF2E-6C84687B23C4}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BusinessLogic", "Business Logic\BusinessLogic.csproj", "{614F931E-D293-4FC0-A84C-69E0C7631461}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PlayersAndMonsters", "Business Logic\PlayersAndMonsters.csproj", "{614F931E-D293-4FC0-A84C-69E0C7631461}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

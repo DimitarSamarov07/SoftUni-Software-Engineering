@@ -1,6 +1,7 @@
 ﻿using System;
+using PlayersAndMonsters.Models.Cards.Contracts;
 
-namespace PlayersAndMonsters
+namespace PlayersAndMonsters.Models.Cards.Classes
 {
     public abstract class Card : ICard
     {

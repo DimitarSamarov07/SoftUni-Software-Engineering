@@ -1,4 +1,4 @@
-﻿namespace PlayersAndMonsters
+﻿namespace PlayersAndMonsters.Models.Cards.Classes
 {
     public class TrapCard:Card
     {

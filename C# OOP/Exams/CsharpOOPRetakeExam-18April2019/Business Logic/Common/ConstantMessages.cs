@@ -1,4 +1,4 @@
-﻿namespace PlayersAndMonsters
+﻿namespace PlayersAndMonsters.Common
 {
     public static class ConstantMessages
     {

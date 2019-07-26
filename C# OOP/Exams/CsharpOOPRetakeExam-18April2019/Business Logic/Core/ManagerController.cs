@@ -1,10 +1,15 @@
 ﻿using System;
 using System.Text;
-using BusinessLogic.Core.Contracts;
+using PlayersAndMonsters.Core.Contracts;
+using PlayersAndMonsters.Core.Factories.Classes;
 using PlayersAndMonsters.Core.Factories.Contracts;
 using PlayersAndMonsters.Models.BattleFields.Classes;
+using PlayersAndMonsters.Models.Cards.Contracts;
+using PlayersAndMonsters.Models.Players.Contracts;
+using PlayersAndMonsters.Repositories.Classes;
+using PlayersAndMonsters.Repositories.Contracts;
 
-namespace PlayersAndMonsters
+namespace PlayersAndMonsters.Core
 {
     public class ManagerController : IManagerController
     {

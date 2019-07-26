@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using PlayersAndMonsters.Models.Players.Contracts;
+using PlayersAndMonsters.Repositories.Contracts;
 
-namespace PlayersAndMonsters
+namespace PlayersAndMonsters.Repositories.Classes
 {
     public class PlayerRepository : IPlayerRepository
     {

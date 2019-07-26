@@ -1,6 +1,8 @@
 ﻿using PlayersAndMonsters.Core.Factories.Contracts;
+using PlayersAndMonsters.Models.Cards.Classes;
+using PlayersAndMonsters.Models.Cards.Contracts;
 
-namespace PlayersAndMonsters
+namespace PlayersAndMonsters.Core.Factories.Classes
 {
     public class CardFactory:ICardFactory
     {

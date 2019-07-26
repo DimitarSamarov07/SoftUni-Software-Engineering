@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
+using PlayersAndMonsters.Models.Players.Contracts;
 
-namespace PlayersAndMonsters
+namespace PlayersAndMonsters.Repositories.Contracts
 {
     public interface IPlayerRepository
     {

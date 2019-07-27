@@ -10,7 +10,7 @@ namespace MortalEngines.Entities
         {
         }
 
-        public bool AggressiveMode { get; set; } = true;
+        public bool AggressiveMode { get; private set; } = true;
         public void ToggleAggressiveMode()
         {
             if (AggressiveMode)

@@ -21,7 +21,7 @@ namespace MortalEngines.Entities
             {
                 if (string.IsNullOrWhiteSpace(value))
                 {
-                    throw new ArgumentException("Pilot name cannot be null or empty string.");
+                    throw new ArgumentNullException("Pilot name cannot be null or empty string.");
                 }
 
                 name = value;

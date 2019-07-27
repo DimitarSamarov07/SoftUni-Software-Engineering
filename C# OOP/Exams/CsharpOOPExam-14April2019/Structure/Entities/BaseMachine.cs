@@ -26,7 +26,7 @@ namespace MortalEngines.Entities
             {
                 if (string.IsNullOrWhiteSpace(value))
                 {
-                    throw new ArgumentException("Machine name cannot be null or empty.");
+                    throw new ArgumentNullException("Machine name cannot be null or empty.");
                 }
 
                 this.name = value;
@@ -35,7 +35,7 @@ namespace MortalEngines.Entities
 
         public IPilot Pilot
         {
-            get => pilot;
+            get => pilot; 
             set
             {
                 if (value == null)
@@ -48,9 +48,9 @@ namespace MortalEngines.Entities
         }
 
         public double HealthPoints { get; set; }
-        public double AttackPoints { get; set; }
-        public double DefensePoints { get;  set; }
-        public IList<string> Targets { get; set; }
+        public double AttackPoints { get; protected set; }
+        public double DefensePoints { get; protected set; }
+        public IList<string> Targets { get; private set; }
         public void Attack(IMachine target)
         {
             if (target == null)

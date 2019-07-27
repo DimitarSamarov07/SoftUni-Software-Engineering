@@ -5,12 +5,12 @@ namespace MortalEngines.Entities
 {
     public class Tank : BaseMachine, ITank
     {
-        public Tank(string name, double attackPoints, double defensePoints, double healthPoints = 100)
-            : base(name, attackPoints -= 40, defensePoints += 30, healthPoints)
+        public Tank(string name, double attackPoints, double defensePoints)
+            : base(name, attackPoints -= 40, defensePoints += 30, 100)
         {
         }
 
-        public bool DefenseMode { get; set; } = true;
+        public bool DefenseMode { get; private set; } = true;
         public void ToggleDefenseMode()
         {
             if (DefenseMode)

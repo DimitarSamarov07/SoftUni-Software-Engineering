@@ -19,10 +19,10 @@ namespace MortalEngines.Entities
             this.Targets = new List<string>();
         }
 
-        public virtual string Name
+        public string Name
         {
             get => name;
-            set
+            private set
             {
                 if (string.IsNullOrWhiteSpace(value))
                 {
@@ -48,9 +48,9 @@ namespace MortalEngines.Entities
         }
 
         public double HealthPoints { get; set; }
-        public double AttackPoints { get; protected set; }
-        public double DefensePoints { get; protected set; }
-        public IList<string> Targets { get; private set; }
+        public double AttackPoints { get; set; }
+        public double DefensePoints { get;  set; }
+        public IList<string> Targets { get; set; }
         public void Attack(IMachine target)
         {
             if (target == null)
@@ -71,16 +71,16 @@ namespace MortalEngines.Entities
             StringBuilder sb = new StringBuilder();
             sb.AppendLine($"- {Name}")
                 .AppendLine($" *Type: {this.GetType().Name}")
-                .AppendLine($" *Health: {HealthPoints}")
-                .AppendLine($" *Attack: {AttackPoints}")
-                .AppendLine($" *Defense: {DefensePoints}");
+                .AppendLine($" *Health: {HealthPoints:f2}")
+                .AppendLine($" *Attack: {AttackPoints:f2}")
+                .AppendLine($" *Defense: {DefensePoints:f2}");
             if (Targets.Count > 0)
             {
-                sb.AppendLine($"Targets: {String.Join(",", Targets)}");
+                sb.AppendLine($" *Targets: {String.Join(",", Targets)}");
             }
             else
             {
-                sb.AppendLine($"Targets: None");
+                sb.AppendLine($" *Targets: None");
             }
 
             return sb.ToString().TrimEnd();

@@ -17,7 +17,7 @@ namespace MortalEngines.Entities
         public string Name
         {
             get => name;
-            set
+            private set
             {
                 if (string.IsNullOrWhiteSpace(value))
                 {
@@ -27,7 +27,7 @@ namespace MortalEngines.Entities
                 name = value;
             }
         }
-        public List<IMachine> Machines { get; set; }
+        public List<IMachine> Machines { get; }
         public void AddMachine(IMachine machine)
         {
             if (machine == null)

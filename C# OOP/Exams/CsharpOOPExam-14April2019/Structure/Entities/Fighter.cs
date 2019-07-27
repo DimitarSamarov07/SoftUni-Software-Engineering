@@ -5,8 +5,8 @@ namespace MortalEngines.Entities
 {
     public class Fighter : BaseMachine, IFighter
     {
-        public Fighter(string name, double attackPoints, double defensePoints,double healthPoints=200)
-            : base(name, attackPoints += 50, defensePoints -= 25, healthPoints)
+        public Fighter(string name, double attackPoints, double defensePoints)
+            : base(name, attackPoints += 50, defensePoints -= 25, 200)
         {
         }
 

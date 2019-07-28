@@ -121,7 +121,7 @@ namespace MortalEngines.Core
         {
             if (Machines.Any(m => m.Name == fighterName))
             {
-                foreach (IFighter machine in Machines.Where(m => m.GetType().Name == "Fighter").Where(m => m.Name == fighterName))
+                foreach (IFighter machine in Machines.Where(m => m.GetType()==typeof(Fighter)).Where(m => m.Name == fighterName))
                 {
                     machine.ToggleAggressiveMode();
                 }
@@ -134,7 +134,7 @@ namespace MortalEngines.Core
         {
             if (Machines.Any(m => m.Name == tankName))
             {
-                foreach (ITank machine in Machines.Where(x => x.GetType().Name == "Tank").Where(x => x.Name == tankName))
+                foreach (ITank machine in Machines.Where(x => x.GetType()==typeof(Tank)).Where(x => x.Name == tankName))
                 {
                     machine.ToggleDefenseMode();
                 }

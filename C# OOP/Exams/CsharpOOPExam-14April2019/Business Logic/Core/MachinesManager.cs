@@ -19,8 +19,9 @@ namespace MortalEngines.Core
             this.Pilots = new List<IPilot>();
             this.Machines = new List<IMachine>();
         }
-        public List<IPilot> Pilots { get; }
-        public List<IMachine> Machines { get; }
+
+        private List<IPilot> Pilots { get; }
+        private List<IMachine> Machines { get; }
         public string HirePilot(string name)
         {
             IPilot pilot = new Pilot(name);

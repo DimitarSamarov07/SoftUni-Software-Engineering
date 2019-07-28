@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29102.190
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MortalEngines", "Structure\MortalEngines.csproj", "{DD32A743-8D6F-43D1-99B5-E6755838A37C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MortalEngines", "Business Logic\MortalEngines.csproj", "{DBB48988-9AA5-4010-A9C1-B5F7D9D718E4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,10 +11,10 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{DD32A743-8D6F-43D1-99B5-E6755838A37C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{DD32A743-8D6F-43D1-99B5-E6755838A37C}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{DD32A743-8D6F-43D1-99B5-E6755838A37C}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{DD32A743-8D6F-43D1-99B5-E6755838A37C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DBB48988-9AA5-4010-A9C1-B5F7D9D718E4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DBB48988-9AA5-4010-A9C1-B5F7D9D718E4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DBB48988-9AA5-4010-A9C1-B5F7D9D718E4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DBB48988-9AA5-4010-A9C1-B5F7D9D718E4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

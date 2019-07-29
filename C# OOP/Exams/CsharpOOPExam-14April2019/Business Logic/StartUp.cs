@@ -71,7 +71,6 @@ namespace MortalEngines
                 catch (ArgumentNullException exc)
                 {
                     Console.WriteLine("Error:"+exc.ParamName);
-                    Environment.Exit(0);
                 }
                 
             }

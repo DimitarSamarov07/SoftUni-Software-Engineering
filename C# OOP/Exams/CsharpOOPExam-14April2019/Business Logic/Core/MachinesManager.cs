@@ -60,39 +60,55 @@ namespace MortalEngines.Core
         {
             if (Pilots.All(x => x.Name != selectedPilotName))
             {
-                return String.Format(OutputMessages.PilotNotFound,selectedPilotName);
+                return String.Format(OutputMessages.PilotNotFound, selectedPilotName);
             }
 
             if (Machines.All(x => x.Name != selectedMachineName))
             {
-                return String.Format(OutputMessages.MachineNotFound,selectedMachineName);
+                return String.Format(OutputMessages.MachineNotFound, selectedMachineName);
             }
 
-            IMachine machine = Machines.Find(x => x.Name == selectedMachineName);
+            IMachine machine = Machines.FirstOrDefault(x => x.Name == selectedMachineName);
+            if (machine == null)
+            {
+                return String.Format(OutputMessages.MachineNotFound, selectedMachineName);
+            }
             if (machine.Pilot != null)
             {
                 return String.Format(OutputMessages.MachineHasPilotAlready, selectedMachineName);
             }
 
-            IPilot pilot = Pilots.Find(p => p.Name == selectedPilotName);
+            IPilot pilot = Pilots.FirstOrDefault(p => p.Name == selectedPilotName);
+            if (pilot == null)
+            {
+                return String.Format(OutputMessages.MachineNotFound, selectedPilotName);
+            }
             pilot.AddMachine(machine);
-            return String.Format(OutputMessages.MachineEngaged,selectedPilotName,selectedMachineName);
+            return String.Format(OutputMessages.MachineEngaged, selectedPilotName, selectedMachineName);
         }
 
         public string AttackMachines(string attackingMachineName, string defendingMachineName)
         {
-            IMachine attacker = Machines.Find(m => m.Name == attackingMachineName);
-            IMachine defender = Machines.Find(m => m.Name == defendingMachineName);
-            if (attacker.HealthPoints<=0||defender.HealthPoints<=0)
+            IMachine attacker = Machines.FirstOrDefault(m => m.Name == attackingMachineName);
+            if (attacker == null)
             {
-                if (attacker.HealthPoints<=0)
+                return String.Format(OutputMessages.MachineNotFound, attackingMachineName);
+            }
+            IMachine defender = Machines.FirstOrDefault(m => m.Name == defendingMachineName);
+            if (defender == null)
+            {
+                return String.Format(OutputMessages.MachineNotFound, defendingMachineName);
+            }
+            if (attacker.HealthPoints <= 0 || defender.HealthPoints <= 0)
+            {
+                if (attacker.HealthPoints <= 0)
                 {
-                    return String.Format(OutputMessages.DeadMachineCannotAttack,attackingMachineName);
+                    return String.Format(OutputMessages.DeadMachineCannotAttack, attackingMachineName);
                 }
 
-                if (defender.HealthPoints<=0)
+                if (defender.HealthPoints <= 0)
                 {
-                    return String.Format(OutputMessages.DeadMachineCannotAttack,defendingMachineName);
+                    return String.Format(OutputMessages.DeadMachineCannotAttack, defendingMachineName);
                 }
             }
             attacker.Attack(defender);
@@ -104,16 +120,24 @@ namespace MortalEngines.Core
         {
             if (Pilots.Any(p => p.Name == pilotReporting))
             {
-                IPilot current = Pilots.Find(x => x.Name == pilotReporting);
+                IPilot current = Pilots.FirstOrDefault(x => x.Name == pilotReporting);
+                if (current == null)
+                {
+                    return String.Format(OutputMessages.PilotNotFound, pilotReporting);
+                }
                 return current.Report();
             }
 
-            return "IVAAAAANANANAAN";
+            return String.Format(OutputMessages.PilotNotFound, pilotReporting);
         }
 
         public string MachineReport(string machineName)
         {
-            IMachine current = Machines.Find(m => m.Name == machineName);
+            IMachine current = Machines.FirstOrDefault(m => m.Name == machineName);
+            if (current==null)
+            {
+                return String.Format(OutputMessages.MachineNotFound,machineName);
+            }
             return current.ToString();
         }
 
@@ -121,20 +145,20 @@ namespace MortalEngines.Core
         {
             if (Machines.Any(m => m.Name == fighterName))
             {
-                foreach (IFighter machine in Machines.Where(m => m.GetType()==typeof(Fighter)).Where(m => m.Name == fighterName))
+                foreach (IFighter machine in Machines.Where(m => m.GetType() == typeof(Fighter)).Where(m => m.Name == fighterName))
                 {
                     machine.ToggleAggressiveMode();
                 }
-                return String.Format(OutputMessages.FighterOperationSuccessful,fighterName);
+                return String.Format(OutputMessages.FighterOperationSuccessful, fighterName);
             }
-            return String.Format(OutputMessages.MachineNotFound,fighterName);
+            return String.Format(OutputMessages.MachineNotFound, fighterName);
         }
 
         public string ToggleTankDefenseMode(string tankName)
         {
             if (Machines.Any(m => m.Name == tankName))
             {
-                foreach (ITank machine in Machines.Where(x => x.GetType()==typeof(Tank)).Where(x => x.Name == tankName))
+                foreach (ITank machine in Machines.Where(x => x.GetType() == typeof(Tank)).Where(x => x.Name == tankName))
                 {
                     machine.ToggleDefenseMode();
                 }

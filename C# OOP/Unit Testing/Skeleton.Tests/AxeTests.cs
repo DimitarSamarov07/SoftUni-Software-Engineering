@@ -9,26 +9,26 @@ namespace Skeleton.Tests
     public class AxeTests
     {
         private Axe axe;
-        private Dummy dummy;
+        private Dummy weapon;
 
         [SetUp]
         public void TestInit()
         {
             axe = new Axe(2, 2);
-            dummy = new Dummy(20, 20);
+            weapon = new Dummy(20, 20);
         }
         [Test]
         public void AxeLoosesDurabilityAfterAttack()
         {
-            axe.Attack(dummy);
+            axe.Attack(weapon);
             Assert.That(axe.DurabilityPoints, Is.EqualTo(1), "Axe durability doesn't change after attack");
         }
         [Test]
         public void BrokenWeaponCannotAttack()
         {
-            axe.Attack(dummy);
-            axe.Attack(dummy);
-            Assert.That(() => axe.Attack(dummy), Throws.InvalidOperationException
+            axe.Attack(weapon);
+            axe.Attack(weapon);
+            Assert.That(() => axe.Attack(weapon), Throws.InvalidOperationException
                 .With.Message.EqualTo("Axe is broken."));
         }
     }

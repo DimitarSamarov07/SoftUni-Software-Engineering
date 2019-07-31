@@ -17,6 +17,12 @@ public class Dummy:ITarget
         get { return this.health; }
     }
 
+    public int Experience
+    {
+        get => experience;
+        set { this.experience = value; }
+    }
+
     public void TakeAttack(int attackPoints)
     {
         if (this.IsDead())
@@ -34,7 +40,7 @@ public class Dummy:ITarget
             throw new InvalidOperationException("Target is not dead.");
         }
 
-        return this.experience;
+        return this.Experience;
     }
 
     public bool IsDead()

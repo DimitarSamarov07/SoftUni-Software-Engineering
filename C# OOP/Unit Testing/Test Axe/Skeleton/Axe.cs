@@ -1,7 +1,8 @@
 ﻿using System;
+using Skeleton.Contracts;
 
 // Axe durability drop with 5 
-public class Axe
+public class Axe:IWeapon
 {
     private int attackPoints;
     private int durabilityPoints;

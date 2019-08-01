@@ -3,9 +3,19 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29102.190
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Structure", "Structure\Structure.csproj", "{96289E6B-5B6E-4825-AF2E-6C84687B23C4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PlayersAndMonsters", "Structure\PlayersAndMonsters.csproj", "{96289E6B-5B6E-4825-AF2E-6C84687B23C4}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PlayersAndMonsters", "Business Logic\PlayersAndMonsters.csproj", "{614F931E-D293-4FC0-A84C-69E0C7631461}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Business Logic", "Business Logic", "{0A3A1189-BC3A-4AAB-99F5-EA55015298D2}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Structure", "Structure", "{92BA8148-BBA2-4FD2-BAE6-AB11506C602B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Unit Testing", "Unit Testing", "{D27255E2-28A5-4107-AD34-F3536B8090F0}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ParkingSystem", "Unit Testing\ParkingSystem\ParkingSystem.csproj", "{7EEFA542-DD07-4591-B5CA-E34F75B6A536}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ParkingSystem.Tests", "Unit Testing\ParkingSystem.Tests\ParkingSystem.Tests.csproj", "{0937436B-A164-49E6-93F1-AB1ADCA1B153}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,9 +31,23 @@ Global
 		{614F931E-D293-4FC0-A84C-69E0C7631461}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{614F931E-D293-4FC0-A84C-69E0C7631461}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{614F931E-D293-4FC0-A84C-69E0C7631461}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7EEFA542-DD07-4591-B5CA-E34F75B6A536}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7EEFA542-DD07-4591-B5CA-E34F75B6A536}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7EEFA542-DD07-4591-B5CA-E34F75B6A536}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7EEFA542-DD07-4591-B5CA-E34F75B6A536}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0937436B-A164-49E6-93F1-AB1ADCA1B153}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0937436B-A164-49E6-93F1-AB1ADCA1B153}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0937436B-A164-49E6-93F1-AB1ADCA1B153}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0937436B-A164-49E6-93F1-AB1ADCA1B153}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{96289E6B-5B6E-4825-AF2E-6C84687B23C4} = {92BA8148-BBA2-4FD2-BAE6-AB11506C602B}
+		{614F931E-D293-4FC0-A84C-69E0C7631461} = {0A3A1189-BC3A-4AAB-99F5-EA55015298D2}
+		{7EEFA542-DD07-4591-B5CA-E34F75B6A536} = {D27255E2-28A5-4107-AD34-F3536B8090F0}
+		{0937436B-A164-49E6-93F1-AB1ADCA1B153} = {D27255E2-28A5-4107-AD34-F3536B8090F0}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {CB41478B-11E5-4D07-A59C-714C813F0A56}

@@ -49,14 +49,14 @@ namespace Database
 
         public int[] Fetch()
         {
-            int[] coppyArray = new int[this.count];
+            int[] copyArray = new int[this.count];
 
             for (int i = 0; i < this.count; i++)
             {
-                coppyArray[i] = this.data[i];
+                copyArray[i] = this.data[i];
             }
 
-            return coppyArray;
+            return copyArray;
         }
     }
 }

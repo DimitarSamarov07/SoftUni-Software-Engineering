@@ -21,9 +21,9 @@ namespace Skeleton.Tests
             fakeTarget.Setup(x => x.Experience).Returns(301);
             fakeTarget.Setup(x => x.IsDead()).Returns(true);
             fakeTarget.Setup(x => x.GiveExperience()).Returns(301);
-            Hero hero = new Hero("Ivan",fakeWeapon.Object);
+            Hero hero = new Hero("Ivan", fakeWeapon.Object);
             hero.Attack(fakeTarget.Object);
-            Assert.That(hero.Experience,Is.EqualTo(301),"Hero doesn't gain Xp when target dies");
+            Assert.That(hero.Experience, Is.EqualTo(301), "Hero doesn't gain Xp when target dies");
         }
     }
 

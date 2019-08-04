@@ -13,8 +13,8 @@ namespace MXGP
         public static void Main(string[] args)
         {
             //TODO Add IEngine
-            IMotorcycle varche = new PowerMotorcycle("12214235", 75);
-            RiderRepository repo = new RiderRepository();
+            Motorcycle varche = new PowerMotorcycle("12214235", 75);
+            MotorcycleRepository repo = new MotorcycleRepository();
             repo.Add(varche);
             Console.WriteLine(String.Join(", ",repo.GetAll()));
             Motorcycle mto= (Motorcycle)repo.GetByName("12214235");

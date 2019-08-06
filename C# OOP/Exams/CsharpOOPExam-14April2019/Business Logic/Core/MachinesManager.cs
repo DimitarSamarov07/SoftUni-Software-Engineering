@@ -24,9 +24,10 @@ namespace MortalEngines.Core
         private List<IMachine> Machines { get; }
         public string HirePilot(string name)
         {
-            IPilot pilot = new Pilot(name);
-            if (!Pilots.Contains(pilot))
+            
+            if (Pilots.All(x => x.Name != name))
             {
+                IPilot pilot = new Pilot(name);
                 Pilots.Add(pilot);
                 return String.Format(OutputMessages.PilotHired, name);
             }
@@ -35,11 +36,12 @@ namespace MortalEngines.Core
 
         public string ManufactureTank(string name, double attackPoints, double defensePoints)
         {
-            ITank toAdd = new Tank(name, attackPoints, defensePoints);
+            
             if (Machines.Any(m => m.Name == name))
             {
                 return String.Format(OutputMessages.MachineExists, name);
             }
+            ITank toAdd = new Tank(name, attackPoints, defensePoints);
             Machines.Add(toAdd);
             return String.Format(OutputMessages.TankManufactured, name, toAdd.AttackPoints, toAdd.DefensePoints);
 
@@ -47,9 +49,10 @@ namespace MortalEngines.Core
 
         public string ManufactureFighter(string name, double attackPoints, double defensePoints)
         {
-            IFighter fighter = new Fighter(name, attackPoints, defensePoints);
+            
             if (Machines.All(m => m.Name != name))
             {
+                IFighter fighter = new Fighter(name, attackPoints, defensePoints);
                 Machines.Add(fighter);
                 return String.Format(OutputMessages.FighterManufactured, name, fighter.AttackPoints, fighter.DefensePoints, "ON");
             }

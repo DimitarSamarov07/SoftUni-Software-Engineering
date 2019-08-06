@@ -38,12 +38,7 @@ namespace MortalEngines.Entities
             get => pilot; 
             set
             {
-                if (value == null)
-                {
-                    throw new ArgumentNullException("Pilot cannot be null.");
-                }
-
-                this.pilot = value;
+                this.pilot = value ?? throw new ArgumentNullException("Pilot cannot be null.");
             }
         }
 

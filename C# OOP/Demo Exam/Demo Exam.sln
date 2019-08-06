@@ -15,6 +15,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TheRace", "Unit Testing\The
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TheRace.Tests", "Unit Testing\TheRace.Tests\TheRace.Tests.csproj", "{FB138A0D-6178-45A5-9DED-FFDEC90083E4}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MXGP", "Business Logic\MXGP\MXGP.csproj", "{285FBD2F-081A-49BF-AE0A-8B55855AB392}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{FB138A0D-6178-45A5-9DED-FFDEC90083E4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FB138A0D-6178-45A5-9DED-FFDEC90083E4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FB138A0D-6178-45A5-9DED-FFDEC90083E4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{285FBD2F-081A-49BF-AE0A-8B55855AB392}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{285FBD2F-081A-49BF-AE0A-8B55855AB392}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{285FBD2F-081A-49BF-AE0A-8B55855AB392}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{285FBD2F-081A-49BF-AE0A-8B55855AB392}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -41,6 +47,7 @@ Global
 		{4EB056AB-7A65-4F1E-9116-4BAC315703D5} = {1792F59A-1D92-4254-A2A5-6B203B84EF8B}
 		{A5D39C2F-541B-4FE4-86FF-DA2BB1415FB4} = {2E3B6E94-D03A-4150-B034-CB53E29B14BE}
 		{FB138A0D-6178-45A5-9DED-FFDEC90083E4} = {2E3B6E94-D03A-4150-B034-CB53E29B14BE}
+		{285FBD2F-081A-49BF-AE0A-8B55855AB392} = {0620C2A6-2062-4945-8E44-C4DCDDBDE84F}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {387E770C-204C-4BF9-A24B-C37D90001ABA}

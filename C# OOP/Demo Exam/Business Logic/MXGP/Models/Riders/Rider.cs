@@ -30,11 +30,15 @@ namespace MXGP.Models.Riders
 
         public IMotorcycle Motorcycle { get; private set; }
         public int NumberOfWins { get; private set; }
-        public bool CanParticipate { get; private set; } = false;
+
+        public bool CanParticipate
+        {
+            get => Motorcycle != null;
+        }
+
         public void AddMotorcycle(IMotorcycle motorcycle)
         {
             Motorcycle = motorcycle ?? throw new ArgumentNullException("Motorcycle cannot be null.");
-            CanParticipate = true;
         }
         public void WinRace()
         {

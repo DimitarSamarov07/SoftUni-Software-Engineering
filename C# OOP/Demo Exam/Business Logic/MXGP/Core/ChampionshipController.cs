@@ -133,6 +133,7 @@ namespace MXGP.Core
                 }
             }
 
+            RaceRepo.Remove(race);
             return sb.ToString().TrimEnd();
         }
     }

@@ -9,12 +9,12 @@ namespace AnimalCentre.Models.Animals
         private int happiness;
         private int energy;
 
-        public Animal(string name, int energy, int happiness, int produceTime)
+        public Animal(string name, int energy, int happiness, int procedureTime)
         {
             this.Name = name;
             this.Happiness = happiness;
             this.Energy = energy;
-            this.ProduceTime = produceTime;
+            this.ProcedureTime = procedureTime;
             this.Owner = "Center";
             this.IsAdopt = false;
             this.IsChipped = false;
@@ -50,7 +50,7 @@ namespace AnimalCentre.Models.Animals
             }
         }
 
-        public int ProduceTime { get; set; }
+        public int ProcedureTime { get; set; }
         public string Owner { get; set; }
         public bool IsAdopt { get; set; }
         public bool IsChipped { get; set; }

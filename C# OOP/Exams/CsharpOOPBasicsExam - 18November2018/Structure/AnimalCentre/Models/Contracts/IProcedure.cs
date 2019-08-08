@@ -2,6 +2,7 @@
 {
     public interface IProcedure
     {
-       //Implement me
+        string History();
+        void DoService(IAnimal animal, int procedureTime);
     }
 }

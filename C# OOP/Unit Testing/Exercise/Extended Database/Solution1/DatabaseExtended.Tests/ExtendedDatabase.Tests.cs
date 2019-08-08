@@ -95,9 +95,8 @@ namespace Tests
         [Test]
         public void DoesItThrowExceptionIfAttemptedToAddUserWithUsernameThatAlreadyExist()
         {
-            pesho = new Person(3232323434224,"Pesho");
             dataVault.Add(pesho);
-            Assert.That(() => dataVault.Add(new Person(442442244000,"Pesho")), Throws.InvalidOperationException
+            Assert.That(() => dataVault.Add(pesho), Throws.InvalidOperationException
                 , "The Add method should throw an exception if is attempted to add user with username that already exist!!");
         }
 

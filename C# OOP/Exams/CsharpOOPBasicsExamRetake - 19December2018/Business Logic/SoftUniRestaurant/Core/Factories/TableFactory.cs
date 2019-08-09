@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using SoftUniRestaurant.Models.Tables;
+﻿using SoftUniRestaurant.Models.Tables;
 using SoftUniRestaurant.Models.Tables.Contracts;
 
 namespace SoftUniRestaurant.Core.Factories

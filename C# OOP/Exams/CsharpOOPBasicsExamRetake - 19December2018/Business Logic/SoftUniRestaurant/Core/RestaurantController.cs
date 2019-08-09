@@ -15,6 +15,9 @@ namespace SoftUniRestaurant.Core
         private List<IFood> menu;
         private List<IDrink> drinks;
         private List<ITable> tables;
+        private FoodFactory Foodfact;
+        private DrinkFactory Drinkfact;
+        private TableFactory TableFact;
         private decimal income;
 
         public RestaurantController()
@@ -22,27 +25,28 @@ namespace SoftUniRestaurant.Core
             menu = new List<IFood>();
             drinks = new List<IDrink>();
             tables = new List<ITable>();
+            Foodfact = new FoodFactory();
+            Drinkfact = new DrinkFactory();
+            TableFact = new TableFactory();
+            income = 0;
         }
         public string AddFood(string type, string name, decimal price)
         {
-            FoodFactory fact = new FoodFactory();
-            IFood toAdd = fact.MakeFood(type, name, price);
+            IFood toAdd = Foodfact.MakeFood(type, name, price);
             menu.Add(toAdd);
             return $"Added {name} ({type}) with price {price:f2} to the pool";
         }
 
         public string AddDrink(string type, string name, int servingSize, string brand)
         {
-            DrinkFactory fact = new DrinkFactory();
-            IDrink toAdd = fact.MakeDrink(type, name, servingSize, brand);
+            IDrink toAdd = Drinkfact.MakeDrink(type, name, servingSize, brand);
             drinks.Add(toAdd);
             return $"Added {name} ({brand}) to the drink pool";
         }
 
         public string AddTable(string type, int tableNumber, int capacity)
         {
-            TableFactory fact = new TableFactory();
-            ITable toAdd = fact.MakeTable(type, tableNumber, capacity);
+            ITable toAdd = TableFact.MakeTable(type, tableNumber, capacity);
             tables.Add(toAdd);
             return $"Added table number {tableNumber} in the restaurant";
         }

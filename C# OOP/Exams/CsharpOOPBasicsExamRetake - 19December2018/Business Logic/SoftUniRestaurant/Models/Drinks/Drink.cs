@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 using SoftUniRestaurant.Models.Drinks.Contracts;
 
 namespace SoftUniRestaurant.Models.Drinks
@@ -11,7 +9,7 @@ namespace SoftUniRestaurant.Models.Drinks
         private int servingSize;
         private decimal price;
         private string brand;
-        protected Drink(string name, int servingSize, decimal price, string brand)
+        public Drink(string name, int servingSize, decimal price, string brand)
         {
             this.Name = name;
             this.ServingSize = servingSize;

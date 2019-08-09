@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace SoftUniRestaurant.Models.Drinks
+﻿namespace SoftUniRestaurant.Models.Drinks
 {
     public class Alcohol:Drink
     {

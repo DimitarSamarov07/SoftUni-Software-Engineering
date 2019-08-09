@@ -11,6 +11,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Business Logic", "Business 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AnimalCentre", "Business Logic\AnimalCentre\AnimalCentre.csproj", "{74771BE5-FF00-4A5B-A762-88BE9C8353AF}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "IO", "IO", "{4DD1CFA3-0A70-488D-ADF3-23F409ECFFFD}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AnimalCentre", "IO\AnimalCentre\AnimalCentre.csproj", "{F253070A-AC32-4B5D-932E-A81116206BCA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -25,6 +29,10 @@ Global
 		{74771BE5-FF00-4A5B-A762-88BE9C8353AF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{74771BE5-FF00-4A5B-A762-88BE9C8353AF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{74771BE5-FF00-4A5B-A762-88BE9C8353AF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F253070A-AC32-4B5D-932E-A81116206BCA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F253070A-AC32-4B5D-932E-A81116206BCA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F253070A-AC32-4B5D-932E-A81116206BCA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F253070A-AC32-4B5D-932E-A81116206BCA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -32,6 +40,7 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{58714DF6-A483-43F8-9BF4-E185704735F5} = {8B4960C0-3E1C-4D8D-A44C-0AE3EF241AF7}
 		{74771BE5-FF00-4A5B-A762-88BE9C8353AF} = {37FC0CC7-BBFB-4DDE-9B41-B497CF07C8E1}
+		{F253070A-AC32-4B5D-932E-A81116206BCA} = {4DD1CFA3-0A70-488D-ADF3-23F409ECFFFD}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {07C2742B-E471-4C11-A483-AF03B75D9A91}

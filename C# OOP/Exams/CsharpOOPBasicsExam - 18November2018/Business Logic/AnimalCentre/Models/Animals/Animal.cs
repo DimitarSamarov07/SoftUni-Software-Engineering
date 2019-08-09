@@ -16,7 +16,7 @@ namespace AnimalCentre.Models.Animals
             this.Happiness = happiness;
             this.Energy = energy;
             this.ProcedureTime = procedureTime;
-            this.Owner = "Center";
+            this.Owner = "Centre";
             this.IsAdopt = false;
             this.IsChipped = false;
             this.IsVaccinated = false;

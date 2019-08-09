@@ -12,13 +12,16 @@ namespace SoftUniRestaurant.Core
 
     public class RestaurantController
     {
-        private List<IFood> menu = new List<IFood>();
-        private List<IDrink> drinks = new List<IDrink>();
-        private List<ITable> tables = new List<ITable>();
-        private decimal earned;
+        private List<IFood> menu;
+        private List<IDrink> drinks;
+        private List<ITable> tables;
+        private decimal income;
 
         public RestaurantController()
         {
+            menu = new List<IFood>();
+            drinks = new List<IDrink>();
+            tables = new List<ITable>();
         }
         public string AddFood(string type, string name, decimal price)
         {
@@ -46,7 +49,7 @@ namespace SoftUniRestaurant.Core
 
         public string ReserveTable(int numberOfPeople)
         {
-            ITable toReserve = tables.FirstOrDefault(x => x.IsReserved == false && x.Capacity <= numberOfPeople);
+            ITable toReserve = tables.FirstOrDefault(x => x.IsReserved == false && x.Capacity >= numberOfPeople);
             if (toReserve == null)
             {
                 return $"No available table for {numberOfPeople} people";
@@ -74,7 +77,7 @@ namespace SoftUniRestaurant.Core
         public string OrderDrink(int tableNumber, string drinkName, string drinkBrand)
         {
             ITable tableOrder = tables.FirstOrDefault(x => x.TableNumber == tableNumber);
-            IDrink drinkToOrder = drinks.FirstOrDefault(x => x.Name == drinkName);
+            IDrink drinkToOrder = drinks.FirstOrDefault(x => x.Name == drinkName && x.Brand == drinkBrand);
             if (tableOrder == null)
             {
                 return $"Could not find table with {tableNumber}";
@@ -93,7 +96,7 @@ namespace SoftUniRestaurant.Core
             StringBuilder sb = new StringBuilder();
             sb.AppendLine($"Table: {tableNumber}");
             sb.AppendLine($"Bill: {table.GetBill():f2}");
-            earned += table.GetBill();
+            income += table.GetBill();
             table.Clear();
             return sb.ToString().TrimEnd();
         }
@@ -103,7 +106,7 @@ namespace SoftUniRestaurant.Core
             StringBuilder sb = new StringBuilder();
             foreach (var item in tables.Where(x => x.IsReserved == false))
             {
-                sb.Append(item.GetFreeTableInfo());
+                sb.AppendLine(item.GetFreeTableInfo());
             }
 
             return sb.ToString().TrimEnd();
@@ -114,7 +117,7 @@ namespace SoftUniRestaurant.Core
             StringBuilder sb = new StringBuilder();
             foreach (var item in tables.Where(x => x.IsReserved))
             {
-                sb.Append(item.GetOccupiedTableInfo());
+                sb.AppendLine(item.GetOccupiedTableInfo());
             }
 
             return sb.ToString().TrimEnd();
@@ -122,7 +125,7 @@ namespace SoftUniRestaurant.Core
 
         public string GetSummary()
         {
-            return $"Total income: {earned:f2}lv";
+            return $"Total income: {income:f2}lv";
         }
     }
 }

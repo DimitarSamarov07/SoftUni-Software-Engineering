@@ -20,7 +20,7 @@ namespace SoftUniRestaurant.Models.Tables
 
         private Table()
         {
-            FoodOreders = new List<IFood>();
+            FoodOrders = new List<IFood>();
             DrinkOrders = new List<IDrink>();
         }
 
@@ -31,8 +31,9 @@ namespace SoftUniRestaurant.Models.Tables
             this.Capacity = capacity;
             this.PricePerPerson = pricePerPerson;
         }
-        private List<IFood> FoodOreders { get; set; }
-        private List<IDrink> DrinkOrders { get; set; }
+
+        private List<IFood> FoodOrders;
+        private List<IDrink> DrinkOrders;
         public int TableNumber
         {
             get => tableNumber;
@@ -86,7 +87,7 @@ namespace SoftUniRestaurant.Models.Tables
 
         public void OrderFood(IFood food)
         {
-            FoodOreders.Add(food);
+            FoodOrders.Add(food);
         }
 
         public void OrderDrink(IDrink drink)
@@ -96,33 +97,47 @@ namespace SoftUniRestaurant.Models.Tables
 
         public decimal GetBill()
         {
-            return decimal.Parse($"{Price + FoodOreders.Sum(x => x.Price) + DrinkOrders.Sum(x => x.Price):f2}");
+            return Price + FoodOrders.Sum(x => x.Price) + DrinkOrders.Sum(x => x.Price);
         }
 
         public void Clear()
         {
-            FoodOreders.Clear();
+            FoodOrders.Clear();
             DrinkOrders.Clear();
             IsReserved = false;
-            NumberOfPeople = 0;
+            this.numberOfPeople = 0;
         }
 
         public string GetFreeTableInfo()
         {
-            return $"Table: {TableNumber}" + Environment.NewLine +
+            return ($"Table: {TableNumber}" + Environment.NewLine +
                    $"Type: {this.GetType().Name}" + Environment.NewLine +
                    $"Capacity: {Capacity}" + Environment.NewLine +
-                   $"Price per Person: {PricePerPerson}";
+                   $"Price per Person: {PricePerPerson}").ToString().TrimEnd();
         }
 
         public string GetOccupiedTableInfo()
         {
             StringBuilder sb = new StringBuilder();
             sb.AppendLine($"Table: {TableNumber}");
-            sb.AppendLine($"Type: {this.GetType()}");
+            sb.AppendLine($"Type: {this.GetType().Name}");
             sb.AppendLine($"Number of people: {NumberOfPeople}");
-            sb.AppendLine(FoodOreders.Any() ? $"Food orders: {FoodOreders.Count}" : "Food orders: None");
-            sb.AppendLine(DrinkOrders.Any() ? $"Drink orders: {FoodOreders.Count}" : "Drink orders: None");
+            sb.AppendLine(FoodOrders.Any() ? $"Food orders: {FoodOrders.Count}" : "Food orders: None");
+            if (FoodOrders.Any())
+            {
+                foreach (var foodOrder in FoodOrders)
+                {
+                    sb.AppendLine(foodOrder.ToString());
+                }
+            }
+            sb.AppendLine(DrinkOrders.Any() ? $"Drink orders: {FoodOrders.Count}" : "Drink orders: None");
+            if (DrinkOrders.Any())
+            {
+                foreach (var drinkOrder in DrinkOrders)
+                {
+                    sb.AppendLine(drinkOrder.ToString());
+                }
+            }
             return sb.ToString().TrimEnd();
         }
     }

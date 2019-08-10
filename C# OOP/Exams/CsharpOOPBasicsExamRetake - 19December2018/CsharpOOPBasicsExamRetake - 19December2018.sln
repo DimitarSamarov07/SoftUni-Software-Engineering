@@ -13,6 +13,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SoftUniRestaurant", "Struct
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SoftUniRestaurant", "Business Logic\SoftUniRestaurant\SoftUniRestaurant.csproj", "{0B122DA7-E857-402C-AD82-E5DCC1711A7D}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SoftUniRestaurant", "IO\SoftUniRestaurant\SoftUniRestaurant.csproj", "{0894E719-2848-4E1E-A7D4-4E9F5443AF08}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{0B122DA7-E857-402C-AD82-E5DCC1711A7D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0B122DA7-E857-402C-AD82-E5DCC1711A7D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0B122DA7-E857-402C-AD82-E5DCC1711A7D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0894E719-2848-4E1E-A7D4-4E9F5443AF08}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0894E719-2848-4E1E-A7D4-4E9F5443AF08}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0894E719-2848-4E1E-A7D4-4E9F5443AF08}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0894E719-2848-4E1E-A7D4-4E9F5443AF08}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -34,6 +40,7 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{D42985A9-8575-498E-AFBF-449373F93C5D} = {6F44A2E1-63A0-447C-A6C8-4482B9F08D1E}
 		{0B122DA7-E857-402C-AD82-E5DCC1711A7D} = {14A838C5-72C1-4FFF-995A-437463BC205F}
+		{0894E719-2848-4E1E-A7D4-4E9F5443AF08} = {54CFC131-96AC-48B1-836D-4A25D122A951}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {134D06A4-6FB5-4EFC-ACB3-5C08E256E629}

@@ -12,8 +12,7 @@ namespace SoftUni
     {
         public static void Main(string[] args)
         {
-            SoftUniContext context = new SoftUniContext();
-            Console.WriteLine(RemoveTown(context));
+
         }
 
         public static string GetEmployeesFullInformation(SoftUniContext context)

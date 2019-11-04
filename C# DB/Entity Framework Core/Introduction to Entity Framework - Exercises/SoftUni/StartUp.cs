@@ -1,13 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Globalization;
-using System.Linq;
-using System.Text;
-using SoftUni.Data;
-using SoftUni.Models;
-
-namespace SoftUni
+﻿namespace SoftUni
 {
+    using System.Linq;
+    using System.Collections.Generic;
+    using System.Globalization;
+    using System.Text;
+    using Data;
+    using Models;
+
     public class StartUp
     {
         public static void Main(string[] args)

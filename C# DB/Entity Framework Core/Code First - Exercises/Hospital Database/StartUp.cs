@@ -2,7 +2,6 @@
 {
     using Data;
     using Data.Models;
-    using Microsoft.EntityFrameworkCore;
 
     class StartUp
     {

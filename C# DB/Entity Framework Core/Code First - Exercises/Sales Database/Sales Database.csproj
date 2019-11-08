@@ -1,0 +1,22 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp3.0</TargetFramework>
+    <RootNamespace>P03_SalesDatabase</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Data\Migrations\20191108094951_Fix.cs" />
+    <Compile Remove="Data\Migrations\20191108094951_Fix.Designer.cs" />
+    <Compile Remove="Data\Migrations\20191108100621_ProductsAddColumnDescription.cs" />
+    <Compile Remove="Data\Migrations\20191108100621_ProductsAddColumnDescription.Designer.cs" />
+    <Compile Remove="Data\Migrations\20191108100834_ProductsAddColumnDescription.cs" />
+    <Compile Remove="Data\Migrations\20191108100834_ProductsAddColumnDescription.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="2.2.0" />
+  </ItemGroup>
+
+</Project>

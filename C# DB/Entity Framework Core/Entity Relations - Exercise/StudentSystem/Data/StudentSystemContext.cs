@@ -66,7 +66,8 @@
                 .Entity<Resource>()
                 .HasOne(p => p.Course)
                 .WithMany(p => p.Resources)
-                .HasForeignKey(fk => fk.CourseId);
+                .HasForeignKey(fk => fk.CourseId)
+                .OnDelete(DeleteBehavior.Restrict);
 
             modelBuilder
                 .Entity<StudentCourse>()

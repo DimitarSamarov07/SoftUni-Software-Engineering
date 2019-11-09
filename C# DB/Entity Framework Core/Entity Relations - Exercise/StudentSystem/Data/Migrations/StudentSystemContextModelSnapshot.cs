@@ -151,7 +151,7 @@ namespace P01_StudentSystem.Data.Migrations
                     b.HasOne("P01_StudentSystem.Data.Models.Course", "Course")
                         .WithMany("Resources")
                         .HasForeignKey("CourseId")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .OnDelete(DeleteBehavior.Restrict);
                 });
 
             modelBuilder.Entity("P01_StudentSystem.Data.Models.StudentCourse", b =>

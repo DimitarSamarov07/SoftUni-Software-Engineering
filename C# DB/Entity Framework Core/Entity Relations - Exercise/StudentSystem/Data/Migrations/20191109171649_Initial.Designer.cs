@@ -10,8 +10,8 @@ using P01_StudentSystem.Data;
 namespace P01_StudentSystem.Data.Migrations
 {
     [DbContext(typeof(StudentSystemContext))]
-    [Migration("20191109124821_Initial1")]
-    partial class Initial1
+    [Migration("20191109171649_Initial")]
+    partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -153,7 +153,7 @@ namespace P01_StudentSystem.Data.Migrations
                     b.HasOne("P01_StudentSystem.Data.Models.Course", "Course")
                         .WithMany("Resources")
                         .HasForeignKey("CourseId")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .OnDelete(DeleteBehavior.Restrict);
                 });
 
             modelBuilder.Entity("P01_StudentSystem.Data.Models.StudentCourse", b =>

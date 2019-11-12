@@ -17,3 +17,4 @@
 |<a href="https://softuni.bg/trainings/2237/technology-fundamentals-with-csharp-january-2019"> Technology Fundamentals with C# </a>| <a href="https://softuni.bg/certificates/details/65394/16caf4d1"> Link</a> |
 |<a href="https://softuni.bg/trainings/2348/csharp-advanced-may-2019"> C# Advanced </a>| <a href="https://softuni.bg/certificates/details/67928/fbf9bbfd"> Link</a> |
 |<a href="https://softuni.bg/trainings/2349/csharp-oop-june-2019"> C# OOP </a>| <a href="https://softuni.bg/certificates/details/69985/bff1d4a2"> Link</a> |
+|<a href="https://softuni.bg/trainings/2495/databases-basics-ms-sql-server-september-2019"> MS SQL Server </a>| <a href="https://softuni.bg/certificates/details/71147/8c2e42d7"> Link</a> |

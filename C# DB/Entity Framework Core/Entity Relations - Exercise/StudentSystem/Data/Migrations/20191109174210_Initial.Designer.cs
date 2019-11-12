@@ -10,7 +10,7 @@ using P01_StudentSystem.Data;
 namespace P01_StudentSystem.Data.Migrations
 {
     [DbContext(typeof(StudentSystemContext))]
-    [Migration("20191109171649_Initial")]
+    [Migration("20191109174210_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

@@ -11,6 +11,10 @@
     <Compile Remove="Data\Migrations\20191109124821_Initial1.Designer.cs" />
     <Compile Remove="Data\Migrations\20191109171557_Initial.cs" />
     <Compile Remove="Data\Migrations\20191109171557_Initial.Designer.cs" />
+    <Compile Remove="Data\Migrations\20191109171649_Initial.cs" />
+    <Compile Remove="Data\Migrations\20191109171649_Initial.Designer.cs" />
+    <Compile Remove="Data\Migrations\20191109173745_Initial.cs" />
+    <Compile Remove="Data\Migrations\20191109173745_Initial.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>

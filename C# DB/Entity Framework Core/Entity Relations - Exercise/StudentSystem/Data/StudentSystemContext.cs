@@ -10,7 +10,7 @@
             
         }
         public StudentSystemContext(DbContextOptions contextOptions)
-        :base()
+        :base(contextOptions)
         {
 
         }
@@ -27,7 +27,11 @@
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(Configuration.ConnectionString);
+            if (!optionsBuilder.IsConfigured)
+            {
+                optionsBuilder.UseSqlServer(Configuration.ConnectionString);
+            }
+            
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -84,7 +88,9 @@
                 .Entity<StudentCourse>()
                 .HasOne(e => e.Course)
                 .WithMany(p => p.StudentsEnrolled)
-                .HasForeignKey(fk => fk.CourseId);
+                .HasForeignKey(fk => fk.CourseId)
+                .OnDelete(DeleteBehavior.Restrict);
+                
 
             modelBuilder
                 .Entity<Homework>()

@@ -10,7 +10,6 @@
         public static void Main(string[] args)
         {
             StudentSystemContext db = new StudentSystemContext();
-            db.Database.EnsureCreated();
             Seed(db);
             Console.WriteLine("DONE!!");
         }

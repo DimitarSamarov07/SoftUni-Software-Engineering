@@ -155,5 +155,23 @@
             return sb.ToString().TrimEnd();
         }
 
+        public static string GetAuthorNamesEndingIn(BookShopContext context, string input)
+        {
+            var authors = context.Authors
+                .Where(x => x.FirstName.EndsWith(input))
+                .Select(x => new
+                {
+                    FullName = x.FirstName + " " + x.LastName
+                })
+                .ToArray();
+
+            StringBuilder sb = new StringBuilder();
+            foreach (var author in authors.OrderBy(x=>x.FullName))
+            {
+                sb.AppendLine(author.FullName);
+            }
+
+            return sb.ToString().TrimEnd();
+        }
     }
 }

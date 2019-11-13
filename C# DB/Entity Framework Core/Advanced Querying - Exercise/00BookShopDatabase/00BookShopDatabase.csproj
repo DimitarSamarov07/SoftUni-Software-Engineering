@@ -1,0 +1,29 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp3.0</TargetFramework>
+    <RootNamespace>BookShop</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Data\Migrations\20191113175532_Initital.cs" />
+    <Compile Remove="Data\Migrations\20191113175532_Initital.Designer.cs" />
+    <Compile Remove="Data\Migrations\20191113182015_Initital.cs" />
+    <Compile Remove="Data\Migrations\20191113182015_Initital.Designer.cs" />
+    <Compile Remove="Data\Migrations\20191113182901_Initital.cs" />
+    <Compile Remove="Data\Migrations\20191113182901_Initital.Designer.cs" />
+    <Compile Remove="Data\Migrations\20191113183503_Initital.cs" />
+    <Compile Remove="Data\Migrations\20191113183503_Initital.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="2.2.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer.Design" Version="1.1.6" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="2.2.0">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+
+</Project>

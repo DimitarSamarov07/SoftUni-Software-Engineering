@@ -2,6 +2,7 @@
 {
     using System;
     using System.Collections.Generic;
+    using System.Globalization;
     using System.Linq;
     using System.Text;
     using Data;
@@ -13,7 +14,7 @@
         public static void Main(string[] args)
         {
             BookShopContext context = new BookShopContext();
-            Console.WriteLine(GetBooksByCategory(context, "horror mystery drama"));
+            Console.WriteLine(GetAuthorNamesEndingIn(context, "e"));
         }
 
         public static string GetBooksByAgeRestriction(BookShopContext context, string command)
@@ -129,5 +130,30 @@
             return sb.ToString().TrimEnd();
 
         }
+
+        public static string GetBooksReleasedBefore(BookShopContext context, string date)
+        {
+            DateTime dateTime = DateTime.ParseExact(date, "dd-MM-yyyy", CultureInfo.InvariantCulture);
+
+            var books = context.Books
+                .Where(x => x.ReleaseDate.Value < dateTime)
+                .Select(x => new
+                {
+                    Title = x.Title,
+                    EditionType = x.EditionType,
+                    Price = x.Price,
+                    ReleaseDate = x.ReleaseDate
+                })
+                .ToArray();
+
+            StringBuilder sb = new StringBuilder();
+            foreach (var book in books.OrderByDescending(x => x.ReleaseDate))
+            {
+                sb.AppendLine($"{book.Title} - {book.EditionType} - ${book.Price:f2}");
+            }
+
+            return sb.ToString().TrimEnd();
+        }
+
     }
 }

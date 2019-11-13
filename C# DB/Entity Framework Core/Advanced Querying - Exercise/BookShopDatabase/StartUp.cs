@@ -11,7 +11,7 @@
         public static void Main(string[] args)
         {
             BookShopContext context = new BookShopContext();
-            Console.WriteLine(GetGoldenBooks(context));
+            Console.WriteLine(GetBooksByPrice(context));
         }
 
         public static string GetBooksByAgeRestriction(BookShopContext context, string command)
@@ -50,6 +50,26 @@
             foreach (var book in books.OrderBy(x => x.BookId))
             {
                 sb.AppendLine(book.Title);
+            }
+
+            return sb.ToString().TrimEnd();
+        }
+
+        public static string GetBooksByPrice(BookShopContext context)
+        {
+            var books = context.Books
+                .Where(x => x.Price > 40)
+                .Select(x => new
+                {
+                    Title = x.Title,
+                    Price = x.Price
+                })
+                .ToArray();
+
+            StringBuilder sb = new StringBuilder();
+            foreach (var book in books.OrderByDescending(x=>x.Price))
+            {
+                sb.AppendLine($"{book.Title} - ${book.Price:f2}");
             }
 
             return sb.ToString().TrimEnd();

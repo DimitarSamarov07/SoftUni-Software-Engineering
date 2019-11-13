@@ -1,9 +1,11 @@
 ﻿namespace BookShop
 {
     using System;
+    using System.Collections.Generic;
     using System.Linq;
     using System.Text;
     using Data;
+    using Microsoft.EntityFrameworkCore;
     using Models.Enums;
 
     public class StartUp
@@ -11,7 +13,7 @@
         public static void Main(string[] args)
         {
             BookShopContext context = new BookShopContext();
-            Console.WriteLine(GetBooksNotReleasedIn(context,1998));
+            Console.WriteLine(GetBooksByCategory(context, "horror mystery drama"));
         }
 
         public static string GetBooksByAgeRestriction(BookShopContext context, string command)
@@ -67,7 +69,7 @@
                 .ToArray();
 
             StringBuilder sb = new StringBuilder();
-            foreach (var book in books.OrderByDescending(x=>x.Price))
+            foreach (var book in books.OrderByDescending(x => x.Price))
             {
                 sb.AppendLine($"{book.Title} - ${book.Price:f2}");
             }
@@ -87,12 +89,45 @@
                 .ToArray();
 
             StringBuilder sb = new StringBuilder();
-            foreach (var book in books.OrderBy(x=>x.BookId))
+            foreach (var book in books.OrderBy(x => x.BookId))
             {
                 sb.AppendLine(book.Title);
             }
 
             return sb.ToString().TrimEnd();
+        }
+
+        public static string GetBooksByCategory(BookShopContext context, string input)
+        {
+            string[] categories = input.Split(" ", StringSplitOptions.RemoveEmptyEntries);
+
+            List<string> toOrder = new List<string>();
+
+            foreach (var item in categories)
+            {
+                var books = context.Books
+                    .Where(x => x.BookCategories
+                        .Any(c => String.Equals(c.Category.Name, item, StringComparison.CurrentCultureIgnoreCase)))
+                    .Select(p => new
+                    {
+                        Title = p.Title
+                    })
+                    .ToArray();
+
+                foreach (var book in books)
+                {
+                    toOrder.Add(book.Title);
+                }
+            }
+
+            StringBuilder sb = new StringBuilder();
+            foreach (var item in toOrder.OrderBy(x => x))
+            {
+                sb.AppendLine(item);
+            }
+
+            return sb.ToString().TrimEnd();
+
         }
     }
 }

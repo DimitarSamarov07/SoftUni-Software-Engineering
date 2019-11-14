@@ -14,7 +14,7 @@
         public static void Main(string[] args)
         {
             BookShopContext context = new BookShopContext();
-            Console.WriteLine(GetMostRecentBooks(context));
+            Console.WriteLine(CountCopiesByAuthor(context));
         }
 
         public static string GetBooksByAgeRestriction(BookShopContext context, string command)

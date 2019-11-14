@@ -14,7 +14,7 @@
         public static void Main(string[] args)
         {
             BookShopContext context = new BookShopContext();
-            Console.WriteLine(GetBookTitlesContaining(context, "WOR"));
+            Console.WriteLine(GetBooksByAuthor(context, "po"));
         }
 
         public static string GetBooksByAgeRestriction(BookShopContext context, string command)
@@ -189,6 +189,28 @@
             foreach (var book in books)
             {
                 sb.AppendLine(book.Title);
+            }
+
+            return sb.ToString().TrimEnd();
+        }
+
+        public static string GetBooksByAuthor(BookShopContext context, string input)
+        {
+            var books = context.Books
+                .Where(x => x.Author.LastName.StartsWith(input, StringComparison.InvariantCultureIgnoreCase))
+                .Select(x => new
+                {
+                    BookId = x.BookId,
+                    Title = x.Title,
+                    AuthorFullName = x.Author.FirstName + " " + x.Author.LastName
+                })
+                .OrderBy(x => x.BookId)
+                .ToArray();
+
+            StringBuilder sb = new StringBuilder();
+            foreach (var book in books)
+            {
+                sb.AppendLine($"{book.Title} ({book.AuthorFullName})");
             }
 
             return sb.ToString().TrimEnd();

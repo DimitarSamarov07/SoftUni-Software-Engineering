@@ -14,7 +14,7 @@
         public static void Main(string[] args)
         {
             BookShopContext context = new BookShopContext();
-            Console.WriteLine(CountBooks(context, 40));
+            Console.WriteLine(CountCopiesByAuthor(context));
         }
 
         public static string GetBooksByAgeRestriction(BookShopContext context, string command)
@@ -222,6 +222,26 @@
                 .Count(x => x.Title.Length > lengthCheck);
 
             return bookCount;
+        }
+
+        public static string CountCopiesByAuthor(BookShopContext context)
+        {
+            var authors = context.Authors
+                .Select(x => new
+                {
+                    AuthorFullName = x.FirstName + " " + x.LastName,
+                    TotalCopies = x.Books.Sum(x => x.Copies)
+                })
+                .OrderByDescending(x => x.TotalCopies)
+                .ToArray();
+
+            StringBuilder sb = new StringBuilder();
+            foreach (var author in authors)
+            {
+                sb.AppendLine($"{author.AuthorFullName} - {author.TotalCopies}");
+            }
+
+            return sb.ToString().TrimEnd();
         }
     }
 }

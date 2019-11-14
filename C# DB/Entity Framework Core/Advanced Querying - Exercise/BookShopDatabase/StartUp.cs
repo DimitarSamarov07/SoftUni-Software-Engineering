@@ -14,7 +14,7 @@
         public static void Main(string[] args)
         {
             BookShopContext context = new BookShopContext();
-            Console.WriteLine(CountCopiesByAuthor(context));
+            Console.WriteLine(GetMostRecentBooks(context));
         }
 
         public static string GetBooksByAgeRestriction(BookShopContext context, string command)
@@ -166,7 +166,7 @@
                 .ToArray();
 
             StringBuilder sb = new StringBuilder();
-            foreach (var author in authors.OrderBy(x=>x.FullName))
+            foreach (var author in authors.OrderBy(x => x.FullName))
             {
                 sb.AppendLine(author.FullName);
             }
@@ -242,6 +242,42 @@
             }
 
             return sb.ToString().TrimEnd();
+        }
+
+        public static string GetTotalProfitByCategory(BookShopContext context)
+        {
+            var categories = context.Categories
+                .Select(x => new
+                {
+                    CategoryName = x.Name,
+                    TotalProfit = x.CategoryBooks.Sum(p => p.Book.Price * p.Book.Copies),
+                })
+                .OrderByDescending(x => x.TotalProfit)
+                .ThenBy(x => x.CategoryName);
+
+            StringBuilder sb = new StringBuilder();
+            foreach (var category in categories)
+            {
+                sb.AppendLine($"{category.CategoryName} ${category.TotalProfit}");
+            }
+
+            return sb.ToString().TrimEnd();
+        }
+        public static int RemoveBooks(BookShopContext context)
+        {
+            var books = context.Books
+                .Where(x => x.Copies < 4200);
+
+            int count = books.Count();
+
+            foreach (var book in books)
+            {
+                context.Books.Remove(book);
+            }
+
+            context.SaveChanges();
+
+            return count;
         }
     }
 }

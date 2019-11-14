@@ -14,7 +14,7 @@
         public static void Main(string[] args)
         {
             BookShopContext context = new BookShopContext();
-            Console.WriteLine(GetBooksByAuthor(context, "po"));
+            Console.WriteLine(CountBooks(context, 40));
         }
 
         public static string GetBooksByAgeRestriction(BookShopContext context, string command)
@@ -214,6 +214,14 @@
             }
 
             return sb.ToString().TrimEnd();
+        }
+
+        public static int CountBooks(BookShopContext context, int lengthCheck)
+        {
+            var bookCount = context.Books
+                .Count(x => x.Title.Length > lengthCheck);
+
+            return bookCount;
         }
     }
 }

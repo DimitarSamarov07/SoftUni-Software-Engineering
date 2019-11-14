@@ -311,5 +311,21 @@
             context.SaveChanges();
         }
 
+        public static int RemoveBooks(BookShopContext context)
+        {
+            var books = context.Books
+                .Where(x => x.Copies < 4200);
+
+            int count = books.Count();
+
+            foreach (var book in books)
+            {
+                context.Books.Remove(book);
+            }
+
+            context.SaveChanges();
+
+            return count;
+        }
     }
 }

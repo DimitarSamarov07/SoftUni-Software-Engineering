@@ -297,5 +297,19 @@
             return sb.ToString().TrimEnd();
         }
 
+        public static void IncreasePrices(BookShopContext context)
+        {
+            var booksToUpdate = context.Books
+                .Where(x => x.ReleaseDate.Value.Year < 2010)
+                .ToArray();
+
+            foreach (var book in booksToUpdate)
+            {
+                book.Price += 5;
+            }
+
+            context.SaveChanges();
+        }
+
     }
 }

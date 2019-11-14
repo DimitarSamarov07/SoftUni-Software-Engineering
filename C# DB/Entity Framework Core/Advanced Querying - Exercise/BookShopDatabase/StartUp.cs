@@ -264,68 +264,6 @@
             return sb.ToString().TrimEnd();
         }
 
-        public static string GetMostRecentBooks(BookShopContext context)
-        {
-            var categories = context.Categories
-                .Select(x => new
-                {
-                    CategoryName = x.Name,
-                    Books = x.CategoryBooks
-                        .Select(p => new
-                        {
-                            Title = p.Book.Title,
-                            ReleaseDate = p.Book.ReleaseDate,
-                            ReleaseYear = p.Book.ReleaseDate.Value.Year
-                        })
-                        .OrderByDescending(p => p.ReleaseDate)
-                        .Take(3)
-                        .ToArray()
-                })
-                .OrderBy(x => x.CategoryName)
-                .ToArray();
-
-            StringBuilder sb = new StringBuilder();
-            foreach (var category in categories)
-            {
-                sb.AppendLine($"--{category.CategoryName}");
-                foreach (var book in category.Books)
-                {
-                    sb.AppendLine($"{book.Title} ({book.ReleaseYear})");
-                }
-            }
-
-            return sb.ToString().TrimEnd();
-        }
-
-        public static void IncreasePrices(BookShopContext context)
-        {
-            var booksToUpdate = context.Books
-                .Where(x => x.ReleaseDate.Value.Year < 2010)
-                .ToArray();
-
-            foreach (var book in booksToUpdate)
-            {
-                book.Price += 5;
-            }
-
-            context.SaveChanges();
-        }
-
-        public static int RemoveBooks(BookShopContext context)
-        {
-            var books = context.Books
-                .Where(x => x.Copies < 4200);
-
-            int count = books.Count();
-
-            foreach (var book in books)
-            {
-                context.Books.Remove(book);
-            }
-
-            context.SaveChanges();
-
-            return count;
-        }
+        
     }
 }

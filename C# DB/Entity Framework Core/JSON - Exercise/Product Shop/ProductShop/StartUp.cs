@@ -43,3 +43,14 @@ namespace ProductShop
             return $"Successfully imported {products.Length}";
         }
 
+        public static string ImportCategories(ProductShopContext context, string inputJson)
+        {
+            var categories = JsonConvert.DeserializeObject<Category[]>(inputJson)
+                .Where(n => n.Name != null)
+                .ToArray();
+
+            context.AddRange(categories);
+            context.SaveChanges();
+
+            return $"Successfully imported {categories.Length}";
+        }

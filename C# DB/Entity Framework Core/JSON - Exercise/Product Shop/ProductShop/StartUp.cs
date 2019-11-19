@@ -65,3 +65,25 @@ namespace ProductShop
             return $"Successfully imported {categoryProducts.Length}";
         }
 
+        public static string GetProductsInRange(ProductShopContext context)
+        {
+            var exportedProducts = context.Products
+                .Where(p => p.Price >= 500 && p.Price <= 1000)
+                .Select(p => new
+                {
+                    Name = p.Name,
+                    Price = p.Price,
+                    Seller = $"{p.Seller.FirstName} {p.Seller.LastName}"
+                })
+                .OrderBy(p => p.Price)
+                .ToList();
+
+            var json = JsonConvert.SerializeObject(exportedProducts, Formatting.Indented,
+                new JsonSerializerSettings
+                {
+                    ContractResolver = new CamelCasePropertyNamesContractResolver()
+                });
+
+            return json;
+        }
+

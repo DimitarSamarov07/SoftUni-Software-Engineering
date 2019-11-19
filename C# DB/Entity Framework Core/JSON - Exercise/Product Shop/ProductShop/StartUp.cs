@@ -141,3 +141,48 @@ namespace ProductShop
             return json;
         }
 
+        public static string GetUsersWithProducts(ProductShopContext context)
+        {
+            var users = context.Users
+                .Where(x => x.ProductsSold.Any(p => p.Buyer != null))
+                .OrderByDescending(x => x.ProductsSold.Count(l=>l.Buyer!=null))
+                .Select(x => new
+                {
+                    FirstName = x.FirstName,
+                    LastName = x.LastName,
+                    Age = x.Age,
+                    SoldProducts = new
+                    {
+                        Count = x.ProductsSold.Count(p => p.Buyer != null),
+                        Products = x.ProductsSold
+                            .Where(p => p.Buyer != null)
+                            .Select(p => new
+                            {
+                                Name = p.Name,
+                                Price = p.Price
+                            })
+                            .ToArray()
+                    }
+                })
+                .ToArray();
+
+            var result = new
+            {
+                UsersCount = users.Length,
+                Users = users
+            };
+
+            var json = JsonConvert.SerializeObject(result,Formatting.Indented,
+                new JsonSerializerSettings
+                {
+                    ContractResolver = new CamelCasePropertyNamesContractResolver(),
+                    NullValueHandling = NullValueHandling.Ignore
+                });
+
+            return json;
+
+        }
+
+
+    }
+}

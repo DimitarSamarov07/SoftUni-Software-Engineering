@@ -119,3 +119,25 @@ namespace ProductShop
             return json;
         }
 
+        public static string GetCategoriesByProductsCount(ProductShopContext context)
+        {
+            var categories = context.Categories
+                .Select(x => new
+                {
+                    Category = x.Name,
+                    ProductsCount = x.CategoryProducts.Count,
+                    AveragePrice = $"{x.CategoryProducts.Average(p => p.Product.Price):f2}",
+                    TotalRevenue = $"{x.CategoryProducts.Sum(p => p.Product.Price):f2}"
+                })
+                .OrderByDescending(x => x.ProductsCount)
+                .ToArray();
+
+            var json = JsonConvert.SerializeObject(categories, Formatting.Indented,
+                new JsonSerializerSettings
+                {
+                    ContractResolver = new CamelCasePropertyNamesContractResolver()
+                });
+
+            return json;
+        }
+

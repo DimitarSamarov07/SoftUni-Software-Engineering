@@ -87,3 +87,35 @@ namespace ProductShop
             return json;
         }
 
+        public static string GetSoldProducts(ProductShopContext context)
+        {
+            var users = context.Users
+                .Where(x => x.ProductsSold.Any(p => p.Buyer != null))
+                .Select(x => new
+                {
+                    FirstName = x.FirstName,
+                    LastName = x.LastName,
+                    soldProducts = x.ProductsSold
+                        .Select(p => new
+                        {
+                            Name = p.Name,
+                            Price = p.Price,
+                            BuyerFirstName = p.Buyer.FirstName,
+                            BuyerLastName = p.Buyer.LastName
+                        })
+                        .ToArray()
+                })
+                .OrderBy(x => x.LastName)
+                .ThenBy(x => x.FirstName)
+                .ToArray();
+
+
+            var json = JsonConvert.SerializeObject(users, Formatting.Indented,
+                new JsonSerializerSettings
+                {
+                    ContractResolver = new CamelCasePropertyNamesContractResolver()
+                });
+
+            return json;
+        }
+

@@ -107,3 +107,21 @@
             return $"Successfully imported {sales.Length}.";
         }
 
+        public static string GetOrderedCustomers(CarDealerContext context)
+        {
+            var customers = context.Customers
+                .OrderBy(x => x.BirthDate)
+                .ThenBy(x => x.IsYoungDriver)
+                .Select(x => new ExportCustomerDto
+                {
+                    Name = x.Name,
+                    BirthDate = x.BirthDate.ToString("dd/MM/yyy"),
+                    IsYoungDriver = x.IsYoungDriver
+                })
+                .ToArray();
+
+            var json = JsonConvert.SerializeObject(customers, Formatting.Indented);
+
+            return json;
+        }
+

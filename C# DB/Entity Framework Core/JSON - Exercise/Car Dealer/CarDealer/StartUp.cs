@@ -213,3 +213,32 @@
         }
 
 
+        public static string GetSalesWithAppliedDiscount(CarDealerContext context)
+        {
+            var salesWithCars = context.Sales
+                .Take(10)
+                .Select(x => new
+                {
+                    car = new ExportCarDto
+                    {
+                        Make = x.Car.Make,
+                        Model = x.Car.Model,
+                        TravelledDistance = x.Car.TravelledDistance
+                    },
+
+                    customerName = x.Customer.Name,
+                    Discount = $"{x.Discount:f2}",
+                    price = $"{x.Car.PartCars.Sum(p => p.Part.Price):f2}",
+                    priceWithDiscount = $"{x.Car.PartCars.Sum(p => p.Part.Price) - x.Car.PartCars.Sum(p => p.Part.Price) * x.Discount / 100:f2}"
+                })
+                .ToArray();
+            
+            var json = JsonConvert.SerializeObject(salesWithCars, Formatting.Indented);
+
+            return json;
+
+        }
+    }
+
+
+}

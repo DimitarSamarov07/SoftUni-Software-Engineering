@@ -190,3 +190,26 @@
 
         }
 
+        public static string GetTotalSalesByCustomer(CarDealerContext context)
+        {
+            var customersWithCars = context.Customers
+                .Select(x => new ExportCustomerWithCarDto
+                {
+                    FullName = x.Name,
+                    BoughtCars = x.Sales.Count,
+                    SpentMoney = x.Sales.Sum(p => p.Car.PartCars.Sum(z => z.Part.Price))
+                })
+                .OrderByDescending(x => x.SpentMoney)
+                .ThenByDescending(x => x.BoughtCars)
+                .ToArray();
+
+            var json = JsonConvert.SerializeObject(customersWithCars, Formatting.Indented,
+                new JsonSerializerSettings
+                {
+                    ContractResolver = new CamelCasePropertyNamesContractResolver()
+                });
+
+            return json;
+        }
+
+

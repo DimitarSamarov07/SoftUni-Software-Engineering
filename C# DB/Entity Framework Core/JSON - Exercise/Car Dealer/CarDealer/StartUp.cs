@@ -34,3 +34,16 @@
 
             return $"Successfully imported {suppliers.Length}.";
         }
+
+        public static string ImportParts(CarDealerContext context, string inputJson)
+        {
+            var parts = JsonConvert.DeserializeObject<Part[]>(inputJson)
+                .Where(x => x.SupplierId <= 31)
+                .ToArray();
+
+            context.Parts.AddRange(parts);
+            context.SaveChanges();
+
+            return $"Successfully imported {parts.Length}.";
+        }
+

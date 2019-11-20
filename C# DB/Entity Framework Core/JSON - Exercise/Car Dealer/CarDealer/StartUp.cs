@@ -47,3 +47,43 @@
             return $"Successfully imported {parts.Length}.";
         }
 
+        public static string ImportCars(CarDealerContext context, string inputJson)
+        {
+            var cars = JsonConvert.DeserializeObject<ImportCarsDto[]>(inputJson);
+
+            foreach (var carDto in cars)
+            {
+                Car car = new Car
+                {
+                    Make = carDto.Make,
+                    Model = carDto.Model,
+                    TravelledDistance = carDto.TravelledDistance
+                };
+
+                context.Cars.Add(car);
+
+                foreach (var partId in carDto.PartsId)
+                {
+                    if (context.Cars.FirstOrDefault(x => x.Id == car.Id) == null)
+                    {
+                        PartCar partCar = new PartCar
+                        {
+                            CarId = car.Id,
+                            PartId = partId
+                        };
+
+
+                        if (car.PartCars.FirstOrDefault(p => p.PartId == partId) == null)
+                        {
+                            context.PartCars.Add(partCar);
+                        }
+                    }
+                }
+
+            }
+
+            context.SaveChanges();
+
+            return $"Successfully imported {cars.Length}.";
+        }
+

@@ -162,3 +162,31 @@
             return json;
         }
 
+        public static string GetCarsWithTheirListOfParts(CarDealerContext context)
+        {
+            var carsWithParts = context.Cars
+                .Select(x => new
+                {
+                    car = new ExportCarDto
+                    {
+                        Make = x.Make,
+                        Model = x.Model,
+                        TravelledDistance = x.TravelledDistance
+                    },
+
+                    parts = x.PartCars.Select(p => new ExportPartDto
+                    {
+                        Name = p.Part.Name,
+                        Price = $"{p.Part.Price:f2}"
+                    })
+                        .ToArray()
+
+                })
+                .ToArray();
+
+
+            var json = JsonConvert.SerializeObject(carsWithParts, Formatting.Indented);
+            return json;
+
+        }
+

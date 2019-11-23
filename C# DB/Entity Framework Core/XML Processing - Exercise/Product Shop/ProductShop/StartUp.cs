@@ -206,3 +206,48 @@
             return xml.ToString().TrimEnd();
         }
 
+        public static string GetUsersWithProducts(ProductShopContext context)
+        {
+            var users = context.Users
+                .Where(x => x.ProductsSold.Any())
+                .OrderByDescending(x=>x.ProductsSold.Count)
+                    .Select(x => new GetSoldProductsAndCountDto
+                    {
+                        FirstName = x.FirstName,
+                        LastName = x.LastName,
+                        Age = x.Age.Value,
+                        SoldProducts = new GetCountAndProducts
+                        {
+                            Count = x.ProductsSold.Count,
+                            Products = x.ProductsSold
+                            .Select(z => new GetShortProductInfo
+                            {
+                                Name = z.Name,
+                                Price = z.Price
+                            })
+                            .OrderByDescending(p => p.Price)
+                            .ToList()
+                        }
+                    })
+                .Take(10)
+                .ToList();
+
+            var result = new GetCountAndProductResultDto()
+            {
+                Count = context.Users.Count(x => x.ProductsSold.Any()),
+                Users = users
+            };
+
+            var serializer = new XmlSerializer(typeof(GetCountAndProductResultDto),
+                             new XmlRootAttribute("Users"));
+
+            var namespaces = new XmlSerializerNamespaces(new[] { XmlQualifiedName.Empty });
+
+            StringBuilder xml = new StringBuilder();
+
+            serializer.Serialize(new StringWriter(xml), result, namespaces);
+
+            return xml.ToString().TrimEnd();
+        }
+    }
+}

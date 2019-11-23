@@ -120,3 +120,29 @@
             return $"Successfully imported {categoryProducts.Count}";
         }
 
+        public static string GetProductsInRange(ProductShopContext context)
+        {
+            var products = context.Products
+                .Where(x => x.Price >= 500 && x.Price <= 1000)
+                .OrderBy(x => x.Price)
+                .Take(10)
+                .Select(x => new GetProductsInRangeDto
+                {
+                    Name = x.Name,
+                    Price = x.Price,
+                    Buyer = x.Buyer.FirstName + " " + x.Buyer.LastName
+                })
+                .ToArray();
+
+            var namespaces = new XmlSerializerNamespaces(new[] { XmlQualifiedName.Empty });
+
+            var serializer = new XmlSerializer(typeof(GetProductsInRangeDto[]),
+                             new XmlRootAttribute("Products"));
+
+            StringBuilder xml = new StringBuilder();
+
+            serializer.Serialize(new StringWriter(xml), products, namespaces);
+
+            return xml.ToString().TrimEnd();
+        }
+

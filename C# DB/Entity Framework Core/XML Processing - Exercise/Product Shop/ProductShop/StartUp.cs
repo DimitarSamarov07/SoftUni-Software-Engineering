@@ -49,3 +49,24 @@
             return $"Successfully imported {usersToAdd.Count}";
         }
 
+        public static string ImportProducts(ProductShopContext context, string inputXml)
+        {
+            var serializer = new XmlSerializer(typeof(ImportProductDto[]),
+                new XmlRootAttribute("Products"));
+
+            var productsDto = (ImportProductDto[])serializer.Deserialize(new StringReader(inputXml));
+
+            List<Product> products = new List<Product>();
+
+            foreach (var productDto in productsDto)
+            {
+                var product = Mapper.Map<Product>(productDto);
+                products.Add(product);
+            }
+
+            context.Products.AddRange(products);
+            context.SaveChanges();
+
+            return $"Successfully imported {products.Count}";
+        }
+

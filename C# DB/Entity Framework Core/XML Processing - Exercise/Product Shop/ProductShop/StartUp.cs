@@ -70,3 +70,26 @@
             return $"Successfully imported {products.Count}";
         }
 
+        public static string ImportCategories(ProductShopContext context, string inputXml)
+        {
+            var serializer = new XmlSerializer(typeof(ImportCategoryDto[]),
+                new XmlRootAttribute("Categories"));
+
+            var categoriesDto = (ImportCategoryDto[])serializer.Deserialize(new StringReader(inputXml));
+
+            List<Category> categories = new List<Category>();
+            foreach (var categoryDto in categoriesDto)
+            {
+                if (categoryDto.Name != null)
+                {
+                    var category = Mapper.Map<Category>(categoryDto);
+                    categories.Add(category);
+                }
+            }
+
+            context.Categories.AddRange(categories);
+            context.SaveChanges();
+
+            return $"Successfully imported {categories.Count}";
+        }
+

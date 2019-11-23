@@ -93,3 +93,30 @@
             return $"Successfully imported {categories.Count}";
         }
 
+        public static string ImportCategoryProducts(ProductShopContext context, string inputXml)
+        {
+            var serializer = new XmlSerializer(typeof(ImportCategoryProductsDto[]),
+                new XmlRootAttribute("CategoryProducts"));
+
+            var categoryProductsDto = (ImportCategoryProductsDto[])serializer.Deserialize(new StringReader(inputXml));
+
+            List<CategoryProduct> categoryProducts = new List<CategoryProduct>();
+            foreach (var categoryProductDto in categoryProductsDto)
+            {
+                var categoryProduct = Mapper.Map<CategoryProduct>(categoryProductDto);
+
+                var firstTarget = context.Categories.Find(categoryProduct.CategoryId);
+                var secondTarget = context.Products.Find(categoryProduct.ProductId);
+
+                if (firstTarget != null && secondTarget != null)
+                {
+                    categoryProducts.Add(categoryProduct);
+                }
+            }
+
+            context.CategoryProducts.AddRange(categoryProducts);
+            context.SaveChanges();
+
+            return $"Successfully imported {categoryProducts.Count}";
+        }
+

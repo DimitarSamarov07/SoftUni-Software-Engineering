@@ -204,3 +204,27 @@
             return xml.ToString();
         }
 
+        public static string GetLocalSuppliers(CarDealerContext context)
+        {
+            var suppliers = context.Suppliers
+                .Where(x => !x.IsImporter)
+                .Select(x => new GetLocalSuppliersDto
+                {
+                    Id = x.Id,
+                    Name = x.Name,
+                    PartsCount = x.Parts.Count
+                })
+                .ToArray();
+
+            var serializer = new XmlSerializer(typeof(GetLocalSuppliersDto[]),
+                             new XmlRootAttribute("suppliers"));
+
+            var namespaces = new XmlSerializerNamespaces(new[] { XmlQualifiedName.Empty });
+
+            StringBuilder xml = new StringBuilder();
+
+            serializer.Serialize(new StringWriter(xml), suppliers, namespaces);
+
+            return xml.ToString().TrimEnd();
+        }
+

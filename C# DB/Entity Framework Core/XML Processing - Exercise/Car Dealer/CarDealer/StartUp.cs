@@ -288,3 +288,36 @@
             return xml.ToString();
         }
 
+        public static string GetSalesWithAppliedDiscount(CarDealerContext context)
+        {
+            var sales = context.Sales
+                .Select(x => new GetSalesWithDiscountDto
+                {
+                    Car = new GetCarMainInfo
+                    {
+                        Make = x.Car.Make,
+                        Model = x.Car.Model,
+                        TravelledDistance = x.Car.TravelledDistance
+                    },
+
+                    Discount = x.Discount,
+                    CustomerName = x.Customer.Name,
+                    Price = x.Car.PartCars.Sum(p => p.Part.Price),
+                    PriceWithDiscount = x.Car.PartCars.Sum(p => p.Part.Price) -
+                                        x.Car.PartCars.Sum(p => p.Part.Price) * x.Discount / 100
+                })
+                .ToArray();
+
+            var serializer = new XmlSerializer(typeof(GetSalesWithDiscountDto[]),
+                             new XmlRootAttribute("sales"));
+
+            var namespaces = new XmlSerializerNamespaces(new[] { XmlQualifiedName.Empty });
+
+            StringBuilder xml = new StringBuilder();
+
+            serializer.Serialize(new StringWriter(xml), sales, namespaces);
+
+            return xml.ToString().TrimEnd();
+        }
+    }
+}

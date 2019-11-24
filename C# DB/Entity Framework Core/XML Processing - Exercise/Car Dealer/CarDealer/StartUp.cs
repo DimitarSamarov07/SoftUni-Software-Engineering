@@ -151,3 +151,30 @@
             return $"Successfully imported {sales.Count}";
         }
 
+        public static string GetCarsWithDistance(CarDealerContext context)
+        {
+            var cars = context.Cars
+                .Where(x => x.TravelledDistance > 2000000)
+                .OrderBy(x => x.Make)
+                .ThenBy(x => x.Model)
+                .Take(10)
+                .Select(x => new GetCarWithDistanceDto
+                {
+                    Make = x.Make,
+                    Model = x.Model,
+                    TravelledDistance = x.TravelledDistance
+                })
+                .ToArray();
+
+            var serializer = new XmlSerializer(typeof(GetCarWithDistanceDto[]),
+                             new XmlRootAttribute("cars"));
+
+            var namespaces = new XmlSerializerNamespaces(new[] { XmlQualifiedName.Empty });
+
+            StringBuilder xml = new StringBuilder();
+
+            serializer.Serialize(new StringWriter(xml), cars, namespaces);
+
+            return xml.ToString();
+        }
+

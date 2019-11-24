@@ -228,3 +228,38 @@
             return xml.ToString().TrimEnd();
         }
 
+        public static string GetCarsWithTheirListOfParts(CarDealerContext context)
+        {
+            var carsWithParts = context.Cars
+                .OrderByDescending(x => x.TravelledDistance)
+                .ThenBy(x => x.Model)
+                .Take(5)
+                .Select(x => new GetCarWithListOfParts
+                {
+                    Make = x.Make,
+                    Model = x.Model,
+                    TravelledDistance = x.TravelledDistance,
+                    Parts = x.PartCars
+                        .Select(p => new GetPartMainInfo
+                        {
+                            Name = p.Part.Name,
+                            Price = p.Part.Price
+                        })
+                        .OrderByDescending(z => z.Price)
+                        .ToList()
+
+                })
+                .ToArray();
+
+            var serializer = new XmlSerializer(typeof(GetCarWithListOfParts[]),
+                             new XmlRootAttribute("cars"));
+
+            var namespaces = new XmlSerializerNamespaces(new[] { XmlQualifiedName.Empty });
+
+            StringBuilder xml = new StringBuilder();
+
+            serializer.Serialize(new StringWriter(xml), carsWithParts, namespaces);
+
+            return xml.ToString().TrimEnd();
+        }
+

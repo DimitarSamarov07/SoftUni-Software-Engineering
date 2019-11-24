@@ -128,3 +128,26 @@
             return $"Successfully imported {customers.Count}";
         }
 
+        public static string ImportSales(CarDealerContext context, string inputXml)
+        {
+            var serializer = new XmlSerializer(typeof(ImportSaleDto[]), new XmlRootAttribute("Sales"));
+
+            var salesDto = (ImportSaleDto[])serializer.Deserialize(new StringReader(inputXml));
+
+            List<Sale> sales = new List<Sale>();
+            foreach (var saleDto in salesDto)
+            {
+                var target = context.Cars.Find(saleDto.CarId);
+                if (target != null)
+                {
+                    var sale = Mapper.Map<Sale>(saleDto);
+                    sales.Add(sale);
+                }
+            }
+
+            context.Sales.AddRange(sales);
+            context.SaveChanges();
+
+            return $"Successfully imported {sales.Count}";
+        }
+

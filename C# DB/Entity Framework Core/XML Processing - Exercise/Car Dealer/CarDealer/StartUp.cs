@@ -263,3 +263,28 @@
             return xml.ToString().TrimEnd();
         }
 
+        public static string GetTotalSalesByCustomer(CarDealerContext context)
+        {
+            var customers = context.Customers
+                .Where(x => x.Sales.Count >= 1)
+                .Select(x => new GetTotalSalesByCustomerDto
+                {
+                    FullName = x.Name,
+                    BoughtCars = x.Sales.Count,
+                    SpentMoney = x.Sales.Sum(p => p.Car.PartCars.Sum(z => z.Part.Price))
+                })
+                .OrderByDescending(x => x.SpentMoney)
+                .ToArray();
+
+            var serializer = new XmlSerializer(typeof(GetTotalSalesByCustomerDto[]),
+                new XmlRootAttribute("customers"));
+
+            var namespaces = new XmlSerializerNamespaces(new[] { XmlQualifiedName.Empty });
+
+            StringBuilder xml = new StringBuilder();
+
+            serializer.Serialize(new StringWriter(xml), customers, namespaces);
+
+            return xml.ToString();
+        }
+

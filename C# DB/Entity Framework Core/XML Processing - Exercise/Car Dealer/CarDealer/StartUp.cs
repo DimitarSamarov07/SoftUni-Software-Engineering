@@ -50,3 +50,26 @@
             return $"Successfully imported {suppliers.Count}";
         }
 
+        public static string ImportParts(CarDealerContext context, string inputXml)
+        {
+            var serializer = new XmlSerializer(typeof(ImportPartDto[]), new XmlRootAttribute("Parts"));
+
+            var partsDto = (ImportPartDto[])serializer.Deserialize(new StringReader(inputXml));
+
+            List<Part> parts = new List<Part>();
+            foreach (var partDto in partsDto)
+            {
+                var part = Mapper.Map<Part>(partDto);
+                var target = context.Suppliers.Find(part.SupplierId);
+                if (target != null)
+                {
+                    parts.Add(part);
+                }
+            }
+
+            context.Parts.AddRange(parts);
+            context.SaveChanges();
+
+            return $"Successfully imported {parts.Count}";
+        }
+

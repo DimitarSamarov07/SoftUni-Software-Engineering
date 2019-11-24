@@ -178,3 +178,29 @@
             return xml.ToString();
         }
 
+        public static string GetCarsFromMakeBmw(CarDealerContext context)
+        {
+            var cars = context.Cars
+                .Where(x => x.Make == "BMW")
+                .OrderBy(x => x.Model)
+                .ThenByDescending(x => x.TravelledDistance)
+                .Select(x => new GetCarsFromMakeBmwDto
+                {
+                    Id = x.Id,
+                    Model = x.Model,
+                    TravelledDistance = x.TravelledDistance
+                })
+                .ToArray();
+
+            var serializer = new XmlSerializer(typeof(GetCarsFromMakeBmwDto[]),
+                             new XmlRootAttribute("cars"));
+
+            var namespaces = new XmlSerializerNamespaces(new[] { XmlQualifiedName.Empty });
+
+            StringBuilder xml = new StringBuilder();
+
+            serializer.Serialize(new StringWriter(xml), cars, namespaces);
+
+            return xml.ToString();
+        }
+

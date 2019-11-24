@@ -73,3 +73,38 @@
             return $"Successfully imported {parts.Count}";
         }
 
+        public static string ImportCars(CarDealerContext context, string inputXml)
+        {
+            var serializer = new XmlSerializer(typeof(ImportCarDto[]), new XmlRootAttribute("Cars"));
+
+            var carsDto = (ImportCarDto[])serializer.Deserialize(new StringReader(inputXml));
+
+            List<Car> cars = new List<Car>();
+            foreach (var carDto in carsDto)
+            {
+                var car = Mapper.Map<Car>(carDto);
+                context.Cars.Add(car);
+                foreach (var dtoPartId in carDto.Parts.PartsId)
+                {
+                    var target = context.Parts.Find(dtoPartId.PartId);
+                    var target1 = car.PartCars.FirstOrDefault(x => x.PartId == dtoPartId.PartId);
+                    if (target != null && target1 == null)
+                    {
+                        var partCar = new PartCar
+                        {
+                            CarId = car.Id,
+                            PartId = dtoPartId.PartId
+                        };
+                        car.PartCars.Add(partCar);
+                        context.PartCars.Add(partCar);
+                    }
+
+                }
+
+                cars.Add(car);
+            }
+            context.SaveChanges();
+
+            return $"Successfully imported {cars.Count}";
+        }
+

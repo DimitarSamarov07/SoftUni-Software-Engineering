@@ -1,0 +1,51 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.28803.156
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Apps", "Apps", "{47708129-C3E2-4FE2-8D79-454C78149925}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SULS", "SULS", "{FC375F51-989F-4843-97C7-D088EFBCB0FF}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SULS.App", "Apps\SULS\SULS.App\SULS.App.csproj", "{B6576D98-72E2-496A-B2D0-22F1E8E008B4}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SIS.MvcFramework", "..\csharp-web\2020-Jan-Season\SoftUni-Information-Services\SIS\SIS.MvcFramework\SIS.MvcFramework.csproj", "{871C3AFA-344E-4170-95D7-16969D38015E}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SIS.MvcFramework.Tests", "..\csharp-web\2020-Jan-Season\SoftUni-Information-Services\SIS\SIS.MvcFramework.Tests\SIS.MvcFramework.Tests.csproj", "{8EABC6A8-9A23-4BB2-900B-0D9595238066}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SIS.HTTP", "..\csharp-web\2020-Jan-Season\SoftUni-Information-Services\SIS\SIS.HTTP\SIS.HTTP.csproj", "{38CEE568-E910-45DB-9872-133C3680BABC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B6576D98-72E2-496A-B2D0-22F1E8E008B4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B6576D98-72E2-496A-B2D0-22F1E8E008B4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B6576D98-72E2-496A-B2D0-22F1E8E008B4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B6576D98-72E2-496A-B2D0-22F1E8E008B4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{871C3AFA-344E-4170-95D7-16969D38015E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{871C3AFA-344E-4170-95D7-16969D38015E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{871C3AFA-344E-4170-95D7-16969D38015E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{871C3AFA-344E-4170-95D7-16969D38015E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8EABC6A8-9A23-4BB2-900B-0D9595238066}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8EABC6A8-9A23-4BB2-900B-0D9595238066}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8EABC6A8-9A23-4BB2-900B-0D9595238066}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8EABC6A8-9A23-4BB2-900B-0D9595238066}.Release|Any CPU.Build.0 = Release|Any CPU
+		{38CEE568-E910-45DB-9872-133C3680BABC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{38CEE568-E910-45DB-9872-133C3680BABC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{38CEE568-E910-45DB-9872-133C3680BABC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{38CEE568-E910-45DB-9872-133C3680BABC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{FC375F51-989F-4843-97C7-D088EFBCB0FF} = {47708129-C3E2-4FE2-8D79-454C78149925}
+		{B6576D98-72E2-496A-B2D0-22F1E8E008B4} = {FC375F51-989F-4843-97C7-D088EFBCB0FF}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {95749778-C448-4913-B813-04C78D964222}
+	EndGlobalSection
+EndGlobal

@@ -10,9 +10,11 @@ function isArrayMagical(inputArray) {
     for (let row = 0; row < inputArray.length; row++) {
         sumsSet.add(inputArray[row].reduce((x, y) => x + y))
         let colSum = 0;
-        for (let col = 0; col < inputArray[row].length; col++) {
-            colSum += inputArray[row][col];
+        for (let col = 0; col < inputArray.length; col++) {
+            colSum += inputArray[col][row];
         }
+        sumsSet.add(colSum);
+        colSum = 0;
     }
 
     console.log(sumsSet.size === 1);

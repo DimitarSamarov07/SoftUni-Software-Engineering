@@ -1,7 +1,7 @@
 function solve() {
     const keys = Array.from(document.getElementsByClassName("keys"));
     const expressionOutput = document.getElementById("expressionOutput");
-    const resultElement = document.getElementById("result");
+    const resultElement = document.getElementById("resultOutput");
     const clearButton = document.querySelector(".clear");
 
     let operand;

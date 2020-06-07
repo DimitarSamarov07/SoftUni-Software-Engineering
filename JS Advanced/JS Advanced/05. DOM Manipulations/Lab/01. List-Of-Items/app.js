@@ -12,4 +12,5 @@ function addItem() {
   li.innerText = textInputValue;
 
   itemsList.appendChild(li);
+  textInput.value = "";
 }

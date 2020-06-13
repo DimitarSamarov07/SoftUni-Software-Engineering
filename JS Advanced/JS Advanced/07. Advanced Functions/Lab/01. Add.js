@@ -1,10 +1,7 @@
-function solution(inputNumber) {
+function solution(num1) {
 
-    function add(input) {
-        let num = inputNumber;
-        num += input;
-
-        return num;
+    function add(num2) {
+        return num1 + num2;
     }
 
     return add;

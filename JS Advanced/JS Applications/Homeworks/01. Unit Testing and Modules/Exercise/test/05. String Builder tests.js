@@ -16,7 +16,7 @@ describe('string builder', function () {
         it('should set the string array to empty if the input is not valid', function () {
             const sb = new stringBuilder(undefined);
 
-            expect(sb._stringArray).to.be.empty;
+            expect(sb._stringArray).to.empty;
         });
 
         it('should verify the input', function () {
@@ -25,7 +25,7 @@ describe('string builder', function () {
 
         it('should set the array to the array created from the input string if the input is alright', function () {
 
-            expect(validSb._stringArray.length).to.be.equal(validInput.length);
+            expect(validSb._stringArray.length).to.equal(validInput.length);
         });
     });
 
@@ -39,7 +39,7 @@ describe('string builder', function () {
             validSb.append(input);
             const newString = validSb._stringArray.join("");
 
-            expect(newString.length).to.be
+            expect(newString.length).to
                 .equal(validInput.length + input.length);
 
             assert.isTrue(newString.endsWith(input));
@@ -57,7 +57,7 @@ describe('string builder', function () {
             validSb.prepend(input);
             const newString = validSb._stringArray.join("");
 
-            expect(newString.length).to.be
+            expect(newString.length).to
                 .equal(validInput.length + input.length);
 
             assert.isTrue(newString.startsWith(input));
@@ -77,7 +77,7 @@ describe('string builder', function () {
             const newString = validSb._stringArray.join("");
 
             assert.isTrue(newString.includes(inputString));
-            expect(newString.indexOf(inputString)).to.be.equal(2);
+            expect(newString.indexOf(inputString)).to.equal(2);
             assert.isTrue(newString
                 .slice(index, (newString.length - 1) - inputString.length)
                 .includes(inputString));
@@ -97,7 +97,7 @@ describe('string builder', function () {
 
     describe('toString', function () {
         it('should return the char array ,,casted" to string', function () {
-            expect(validSb.toString()).to.be.equal(validInput);
+            expect(validSb.toString()).to.equal(validInput);
         });
     });
 

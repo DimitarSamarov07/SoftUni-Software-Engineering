@@ -88,7 +88,7 @@ describe('string builder', function () {
         it('should splice properly', function () {
             const stringToRemove = validSb._stringArray.join("").slice(0, 4);
             validSb.remove(0, 4);
-            1
+
             const newStr = validSb._stringArray.join("");
 
             assert.isTrue(!newStr.includes(stringToRemove));

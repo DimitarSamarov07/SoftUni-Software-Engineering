@@ -8,13 +8,13 @@ function attachEvents() {
     loadBtn.addEventListener("click", onLoadBtnCLick)
 
     async function onAddBtnClick(e) {
-        const catchId = e.target.parentElement.id;
+        const formId = e.target.parentElement.id;
         const url = "https://fisher-game.firebaseio.com/catches.json";
 
         const [{value: angler}, {value: weight},
             {value: species}, {value: location},
             {value: bait}, {value: captureTime}] = document
-            .querySelectorAll(`[data-id=${catchId}] > input`)
+            .querySelectorAll(`#${formId} > input`)
 
         const objToPost = {angler, weight, species, location, bait, captureTime};
 

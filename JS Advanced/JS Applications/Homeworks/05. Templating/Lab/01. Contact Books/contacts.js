@@ -47,6 +47,31 @@ async function fillContacts() {
 
     const context = {contacts};
     contactsDiv.innerHTML += (contactsTemplate(context));
+
+    const btns = document.querySelectorAll(".detailsBtn");
+    btns.forEach((btn) => {
+        btn.addEventListener("click", toggleDetails)
+    })
+
+    function toggleDetails(e) {
+        const btn = e.target;
+        let div = e.target.nextElementSibling
+
+        const displaySwitch = {
+            "none": "block",
+            "": "block",
+            "block": "none",
+        }
+
+        const btnTextSwitch = {
+            "Details": "Hide",
+            "Hide": "Details"
+        }
+
+        div.style.display = displaySwitch[div.style.display];
+        btn.textContent = btnTextSwitch[btn.textContent];
+    }
 }
+
 
 fillContacts();

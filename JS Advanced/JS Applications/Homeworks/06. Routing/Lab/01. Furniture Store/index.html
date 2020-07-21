@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Animations&Interceptors Exercise</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="stylesheet" type="text/css"
+          href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="./css/notifications.css">
+    <link rel="stylesheet" type="text/css" href="https://bootswatch.com/4/lux/bootstrap.min.css">
+    <script src="../../node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="../../node_modules/sammy/lib/min/sammy-latest.min.js"></script>
+    <script src="../../node_modules/sammy/lib/plugins/sammy.handlebars.js"></script>
+    <script src="../../node_modules/handlebars/dist/handlebars.min.js"></script>
+</head>
+
+<body id="main">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand text-white" href="#/">Furniture Store</a>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <div class="navbar-nav">
+            <a class="nav-item nav-link text-white-50" href="#/furniture/create">Create</a>
+            <a class="nav-item nav-link text-white-50" href="#/furniture/all">List All</a>
+            <a class="nav-item nav-link text-white-50" href="#/furniture/mine">My Furniture</a>
+        </div>
+    </div>
+</nav>
+
+<div id="container">
+
+</div>
+
+<div id="notifications">
+    <div id="loadingBox" class="notification">
+        <span>Loading …</span>
+    </div>
+    <div id="infoBox" class="notification">
+        <span>Info</span>
+    </div>
+    <div id="errorBox" class="notification">
+        <span>Error</span>
+    </div>
+</div>
+
+<script src="./app.js"></script>
+</body>
+
+</html>

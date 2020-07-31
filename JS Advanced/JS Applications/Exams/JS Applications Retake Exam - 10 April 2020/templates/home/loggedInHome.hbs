@@ -1,0 +1,30 @@
+<section id="home-logged">
+    <section class="first-section">
+        <section class="background-container">
+            {{> createForm}}
+        </section>
+    </section>
+    <section class="second-section">
+        <h3>Articles</h3>
+        <hr>
+
+        <div class="posts-row">
+            {{#each posts}}
+                <article class="post">
+                    <h1>{{title}}</h1>
+                    <h2><span>{{category}}</span></h2>
+                    <p>{{content}}</p>
+
+                    {{#if isAuthor}}
+                        <a href="#/delete/{{objectId}}" id="delete-button">Delete</a>
+                    {{/if}}
+                    <a href="#/details/{{objectId}}" id="details-button">Details</a>
+                    {{#if isAuthor}}
+
+                        <a href="#/edit/{{objectId}}" id="edit-button">Edit</a>
+                    {{/if}}
+                </article>
+            {{/each}}
+        </div>
+    </section>
+</section>

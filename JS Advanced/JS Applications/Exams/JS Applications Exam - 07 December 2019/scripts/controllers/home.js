@@ -2,7 +2,9 @@ import {toggleLoading} from "../notifications.js";
 import {getAllTreks} from "../data.js";
 
 export default async function () {
-    const treks = await getAllTreks();
+    let treks = await getAllTreks();
+
+    treks = treks.sort((a, b) => b.likesCount - a.likesCount);
 
     const context = Object.assign({}, this.app.userData);
     context.treks = treks;

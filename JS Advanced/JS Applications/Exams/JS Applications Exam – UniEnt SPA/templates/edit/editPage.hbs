@@ -1,0 +1,33 @@
+{{> header}}
+<form action="#/edit/{{objectId}}" id="editForm" method="POST">
+
+    <div class="text-center mb-4">
+        <h1 class="h3 mb-3 font-weight-normal">Edit Event</h1>
+    </div>
+
+    <div class="form-label-group">
+        <input type="text" id="inputEventName" name="title" class="form-control" placeholder="Event" required=""
+               autofocus="" value="{{title}}">
+        <label for="inputEventName"></label>
+    </div>
+
+    <div class="form-label-group">
+        <input type="text" id="inpuEventDate" name="dateTime" class="form-control" placeholder="Date" required=""
+               value="{{dateTime}}">
+        <label for="inpuEventDate"></label>
+    </div>
+
+    <div class="form-label-group">
+      <textarea type="text" id="inputEventDescription" name="description" class="form-control" placeholder="Description"
+                required="">{{description}}</textarea>
+        <label for="inputEventDescription"></label>
+    </div>
+    <div class="form-label-group">
+        <input type="text" id="inputEventImage" name="imageUrl" class="form-control" placeholder="Image" required=""
+               autofocus="" value="{{imageUrl}}">
+        <label for="inputEventImage"></label>
+    </div>
+    <button class="btn btn-lg btn-dark btn-block" type="submit">Edit it</button>
+    <p class="mt-5 mb-3 text-muted text-center">© UniEnt - 2019.</p>
+</form>
+{{> footer}}

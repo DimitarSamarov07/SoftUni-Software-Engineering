@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <title>UniEnt</title>
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <link href="./node_modules/bootstrap/dist/css/bootstrap.css" rel="stylesheet"/>
+    <link href="./styles/styles.css" rel="stylesheet"/>
+</head>
+
+<body>
+
+
+<div id="notifications">
+    <div class="alert alert-success" id="successBox" role="alert"></div>
+    <div class="alert alert-info" id="loadingBox" role="alert">Loading</div>
+    <div class="alert alert-danger" id="errorBox" role="alert"></div>
+</div>
+
+<div id="root">
+
+</div>
+</body>
+
+<!-- Libraries -->
+<script src="./node_modules/jquery/dist/jquery.js"></script>
+<script src="./node_modules/bootstrap/dist/js/bootstrap.js"></script>
+<script src="./node_modules/handlebars/dist/handlebars.min.js"></script>
+<script src="./node_modules/sammy/lib/min/sammy-latest.min.js"></script>
+<script src="./node_modules/sammy/lib/min/plugins/sammy.handlebars-latest.min.js"></script>
+<script src="./node_modules/backendless/dist/backendless.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.27.0/moment.min.js"></script>
+
+<script src="./scripts/app.js" type="module"></script>
+
+</html>

@@ -1,0 +1,35 @@
+{{> guestHome}}
+<h1 class="text-center">Movies</h1>
+<section>
+    <a href="#/create" class="btn btn-warning ">Add Movie</a>
+    <form class="search float-right" id="searchForm" action="#/search" method="GET">
+        <label>Search: </label>
+        <input type="text" name="query">
+        <input type="submit" class="btn btn-info" value="Search">
+    </form>
+</section>
+
+<div class=" mt-3 ">
+    <div class="row d-flex d-wrap">
+
+        <div class="card-deck d-flex justify-content-center">
+            {{#each movies}}
+                <div class="card mb-4">
+                    <img class="card-img-top" src="{{imageUrl}}" alt="Card image cap"
+                         width="400">
+                    <div class="card-body">
+                        <h4 class="card-title">{{title}}</h4>
+                    </div>
+                    <div class="card-footer">
+                        <a href="#/details/{{objectId}}">
+                            <button type="button" class="btn btn-info">Details</button>
+                        </a>
+                    </div>
+                </div>
+                {{else}}
+                <h1>No movies...</h1>
+            {{/each}}
+
+        </div>
+    </div>
+</div>

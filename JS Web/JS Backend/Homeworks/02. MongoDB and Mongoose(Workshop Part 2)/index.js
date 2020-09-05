@@ -4,6 +4,15 @@ const mongoose = require('mongoose');
 const config = require('./config/config')[env];
 const app = require('express')();
 
+let __setOptions = mongoose.Query.prototype.setOptions;
+
+mongoose.Query.prototype.setOptions = function (options) {
+    __setOptions.apply(this, arguments);
+    debugger;
+    if (this._mongooseOptions.lean == null) this._mongooseOptions.lean = true;
+    return this;
+};
+
 mongoose.connect(config.databaseUrl, {useNewUrlParser: true, useUnifiedTopology: true}, (err) => {
     if (err) {
         console.log(err);

@@ -1,11 +1,11 @@
 const Cube = require("../models/cube.js");
 
 const getAllCubes = async () => {
-    return Cube.find({}).lean();
+    return Cube.find({});
 }
 
 const getCubeById = async (id) => {
-    return Cube.findById(id).lean();
+    return Cube.findById(id);
 }
 
 const getCubesByCriteria = async (keyword, difficultyFrom, difficultyTo) => {
@@ -23,8 +23,7 @@ const getCubesByCriteria = async (keyword, difficultyFrom, difficultyTo) => {
             $options: "i"
         }
     }).where("difficulty").gte((difficultyFrom))
-        .lte((difficultyTo))
-        .lean();
+        .lte((difficultyTo));
 }
 
 const updateCube = async (cubeId, accessoryId) => {
@@ -35,8 +34,8 @@ const updateCube = async (cubeId, accessoryId) => {
     })
 }
 
-const getCubeAccessories = async (id) => {
-    return Cube.findById(id).populate("accessories").lean();
+const getCubeWithAccessories = async (id) => {
+    return Cube.findById(id).populate("accessories");
 }
 
 
@@ -45,5 +44,5 @@ module.exports = {
     getCubeById,
     getCubesByCriteria,
     updateCube,
-    getCubeWithAccessories: getCubeAccessories
+    getCubeWithAccessories
 }

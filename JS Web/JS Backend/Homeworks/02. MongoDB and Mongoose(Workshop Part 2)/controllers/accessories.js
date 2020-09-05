@@ -1,7 +1,7 @@
 const Accessory = require("../models/accessory.js");
 
 const getAccessories = () => {
-    return Accessory.find({}).lean();
+    return Accessory.find({});
 }
 module.exports = {
     getAccessories

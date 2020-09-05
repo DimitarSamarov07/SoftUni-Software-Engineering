@@ -1,29 +1,49 @@
-const fs = require("fs")
+const Cube = require("../models/cube.js");
 
-const getAllCubes = () => {
-    const cubes = fs.readFileSync("./config/database.json");
-
-    return JSON.parse(cubes);
+const getAllCubes = async () => {
+    return Cube.find({}).lean();
 }
 
-const getCubeById = (id) => {
-    const cubes = getAllCubes();
-
-    return cubes.find(x => x.id === id)
+const getCubeById = async (id) => {
+    return Cube.findById(id).lean();
 }
 
-const getCubesByCriteria = (keyword, difficultyFrom, difficultyTo) => {
-    const cubes = getAllCubes();
+const getCubesByCriteria = async (keyword, difficultyFrom, difficultyTo) => {
 
     if (!difficultyFrom || !difficultyTo || isNaN(difficultyFrom) || isNaN(difficultyTo)) {
         difficultyFrom = 1;
         difficultyTo = Number.MAX_SAFE_INTEGER
+    } else {
+        difficultyTo = Number(difficultyTo);
+        difficultyFrom = Number(difficultyFrom);
     }
-    return cubes.filter(x => x.name.includes(keyword) && x.difficulty >= Number(difficultyFrom) && x.difficulty <= Number(difficultyTo));
+    return Cube.find({
+        "name": {
+            $regex: keyword,
+            $options: "i"
+        }
+    }).where("difficulty").gte((difficultyFrom))
+        .lte((difficultyTo))
+        .lean();
 }
+
+const updateCube = async (cubeId, accessoryId) => {
+    await Cube.findByIdAndUpdate(cubeId, {
+        $addToSet: {
+            accessories: [accessoryId]
+        }
+    })
+}
+
+const getCubeAccessories = async (id) => {
+    return Cube.findById(id).populate("accessories").lean();
+}
+
 
 module.exports = {
     getAllCubes,
     getCubeById,
-    getCubesByCriteria
+    getCubesByCriteria,
+    updateCube,
+    getCubeWithAccessories: getCubeAccessories
 }

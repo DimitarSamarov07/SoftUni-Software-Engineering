@@ -1,41 +1,31 @@
-// • Id - number(uuid)
-//     • Name – string
-//     • Description – string
-//     • Image URL – string
-//     • Difficulty Level– number
-const {v4} = require("uuid")
-const fs = require("fs")
+const mongoose = require("mongoose");
 
-class Cube {
-    constructor(name, description, imageURL, difficulty) {
-        this.id = v4();
-        this.name = name;
-        this.description = description;
-        this.imageURL = imageURL;
-        this.difficulty = difficulty;
-    }
+const CubeSchema = new mongoose.Schema({
+    name: {
+        type: String,
+        required: true,
+    },
+    description: {
+        type: String,
+        required: true,
+        maxlength: 2000
+    },
+    imageUrl: {
+        type: String,
+        required: true,
+    },
+    difficulty: {
+        type: Number,
+        min: 1,
+        max: 6
+    },
+    accessories: [{
+        type: "ObjectId",
+        ref: "Accessory"
+    }]
+})
 
-    save() {
-        const dbFile = "./config/database.json";
-
-        fs.readFile(dbFile, (err, data) => {
-            if (err) {
-                throw err;
-            }
-
-            const cubes = JSON.parse(data);
-            cubes.push(this);
-
-            fs.writeFile(dbFile, JSON.stringify(cubes), (err) => {
-                if (err) {
-                    throw err;
-                }
-            })
-        });
-
-
-        console.log("New cube is successfully stored")
-    }
-}
-
-module.exports = Cube;
+CubeSchema.path("imageUrl").validate((url) => {
+    return url.startsWith("http") || url.startsWith("https")
+}, "Image URL must start with http:// or https://")
+module.exports = mongoose.model('Cube', CubeSchema);

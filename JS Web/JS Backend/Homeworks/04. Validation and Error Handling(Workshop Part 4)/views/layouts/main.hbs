@@ -1,0 +1,21 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{title}}</title>
+    <link href="/static/css/site.css" type="text/css" rel="stylesheet">
+    <link rel='shortcut icon' type='image/x-icon' href='/static/images/favicon.png'/>
+    <script src="/node_modules/jquery/dist/jquery.js" type="text/javascript"></script>
+</head>
+
+<body>
+<div class="container">
+    {{> header}}
+    {{> error-message}}
+    <main>
+        {{{body}}}
+    </main>
+</div>
+{{> footer}}
+</body>
+
+</html>

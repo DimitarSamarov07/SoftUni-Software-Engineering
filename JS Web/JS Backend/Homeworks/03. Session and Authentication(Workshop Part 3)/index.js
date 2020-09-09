@@ -5,6 +5,8 @@ const config = require('./config/config')[env];
 const app = require('express')();
 const indexRouter = require("./routes/index.js")
 const authRouter = require("./routes/auth.js")
+const cubeRouter = require("./routes/cube.js");
+const accessoryRouter = require("./routes/accessory.js");
 
 let __setOptions = mongoose.Query.prototype.setOptions;
 
@@ -30,6 +32,8 @@ require('./config/express')(app);
 
 app.use("/", authRouter);
 app.use("/", indexRouter);
+app.use("/", cubeRouter);
+app.use("/", accessoryRouter);
 
 app.get("*", (req, res) => {
     res.render("404", {

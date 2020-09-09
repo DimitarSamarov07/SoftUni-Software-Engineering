@@ -38,11 +38,27 @@ const getCubeWithAccessories = async (id) => {
     return Cube.findById(id).populate("accessories");
 }
 
+const editCubeById = async (id, args) => {
+    await Cube.updateOne({_id: id, creatorId: args.creatorId}, {...args});
+}
+
+const deleteCubeById = async (id, creatorId) => {
+    await Cube.findOneAndDelete({_id: id, creatorId});
+}
+
+const checkIfUserIsCreator = async (cubeId, userId) => {
+    const cube = await Cube.findOne({_id: cubeId, creatorId: userId});
+
+    return !!cube;
+}
 
 module.exports = {
     getAllCubes,
     getCubeById,
     getCubesByCriteria,
     updateCube,
-    getCubeWithAccessories
+    getCubeWithAccessories,
+    editCubeById,
+    deleteCubeById,
+    checkIfUserIsCreator
 }

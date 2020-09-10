@@ -1,10 +1,17 @@
 const Cube = require("../models/cube.js");
 
+const errorFormatter = (err) => {
+    return err.message.slice(err.message.lastIndexOf(":") + 1, err.message.length)
+}
+
 const getAllCubes = async () => {
     return Cube.find({});
 }
 
 const getCubeById = async (id) => {
+    if (!await verifyId(id)) {
+        return;
+    }
     return Cube.findById(id);
 }
 
@@ -27,22 +34,39 @@ const getCubesByCriteria = async (keyword, difficultyFrom, difficultyTo) => {
 }
 
 const updateCube = async (cubeId, accessoryId) => {
+    if (!await verifyId(cubeId) || !await verifyId(accessoryId)) {
+        return {};
+    }
+
     await Cube.findByIdAndUpdate(cubeId, {
         $addToSet: {
             accessories: [accessoryId]
-        }
-    })
+        },
+    }, {runValidators: true})
 }
 
 const getCubeWithAccessories = async (id) => {
+    if (!await verifyId(id)) {
+        return;
+    }
     return Cube.findById(id).populate("accessories");
 }
 
 const editCubeById = async (id, args) => {
-    await Cube.updateOne({_id: id, creatorId: args.creatorId}, {...args});
+    try {
+        await Cube.updateOne({_id: id, creatorId: args.creatorId}, {...args}, {runValidators: true});
+    } catch (err) {
+        return errorFormatter(err);
+    }
 }
 
+const verifyId = async (id) => {
+    return !!id.match(/^[0-9a-fA-F]{24}$/);
+}
 const deleteCubeById = async (id, creatorId) => {
+    if (!await verifyId(id)) {
+        return;
+    }
     await Cube.findOneAndDelete({_id: id, creatorId});
 }
 
@@ -60,5 +84,6 @@ module.exports = {
     getCubeWithAccessories,
     editCubeById,
     deleteCubeById,
-    checkIfUserIsCreator
+    checkIfUserIsCreator,
+    verifyId
 }

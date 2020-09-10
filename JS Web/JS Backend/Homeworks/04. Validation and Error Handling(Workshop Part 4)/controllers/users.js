@@ -7,23 +7,43 @@ const privateKey = "There-is-no-secret-:)"
 const getUserByUsername = async (username) => {
     return User.findOne({username})
 }
+
+const errorFormatter = (err) => {
+    const errors = [];
+    for (const objName in err.errors) {
+        if (err.errors.hasOwnProperty(objName)) {
+            errors.push(err.errors[objName].message)
+        }
+    }
+
+    return errors;
+}
+
 const saveUser = async (username, password, repeatPassword) => {
     if (password !== repeatPassword) {
-        return;
+        return {error: "Passwords don't match."}
     }
 
     //hashing
     const salt = await bcrypt.genSalt(10);
 
     const hashedPassword = await bcrypt.hash(password, salt);
-    const user = new User({
-        username,
-        password: hashedPassword
-    })
 
-    const userObj = await user.save();
+    try {
+        const user = new User({
+            username,
+            password: hashedPassword
+        })
 
-    return signJwt(userObj._id, userObj.username);
+        const userObj = await user.save();
+        return signJwt(userObj._id, userObj.username);
+    } catch (err) {
+        return {
+            error: errorFormatter(err),
+        }
+    }
+
+
 }
 
 const verifyUserPassword = async (username, password) => {
@@ -84,4 +104,5 @@ module.exports = {
     handleAuthenticated,
     handleGuest,
     checkIfAuthenticated,
+    errorFormatter
 }

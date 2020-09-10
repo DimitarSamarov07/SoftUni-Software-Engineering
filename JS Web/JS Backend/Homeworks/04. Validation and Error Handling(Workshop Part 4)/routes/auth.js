@@ -1,11 +1,10 @@
-const {handleGuest, verifyUserPassword, saveUser, checkIfAuthenticated} = require("../controllers/users.js");
+const {handleGuest, verifyUserPassword, saveUser} = require("../controllers/users.js");
 const express = require("express");
 const router = express.Router();
 
 router.get("/login", handleGuest, async (req, res) => {
     res.render("login", {
         title: "Login page",
-        isAuthenticated: await checkIfAuthenticated(req, res)
     });
 })
 
@@ -19,8 +18,10 @@ router.post("/login", handleGuest, async (req, res) => {
     if (token) {
         res.cookie("aid", token);
     } else {
-        res.redirect("/login");
-        return;
+        return res.render("login", {
+            title: "Login page",
+            error: "Incorrect credentials."
+        });
     }
 
     res.redirect("/");
@@ -29,7 +30,6 @@ router.post("/login", handleGuest, async (req, res) => {
 router.get("/register", handleGuest, async (req, res) => {
     res.render("register", {
         title: "Register page",
-        isAuthenticated: await checkIfAuthenticated(req, res)
     });
 })
 
@@ -39,11 +39,18 @@ router.post("/register", handleGuest, async (req, res) => {
         password,
         repeatPassword
     } = req.body;
+
     const token = await saveUser(username, password, repeatPassword);
 
+    if (token.hasOwnProperty("error")) {
+        return res.render("register", {
+            title: "Register page",
+            error: token.error,
+        })
+    }
+
     if (!token) { //passwords don't match
-        res.redirect("/register");
-        return;
+        return res.redirect("/register");
     }
 
     res.cookie("aid", token);

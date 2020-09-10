@@ -7,6 +7,7 @@ const indexRouter = require("./routes/index.js")
 const authRouter = require("./routes/auth.js")
 const cubeRouter = require("./routes/cube.js");
 const accessoryRouter = require("./routes/accessory.js");
+const {checkIfAuthenticated} = require("./controllers/users.js");
 
 let __setOptions = mongoose.Query.prototype.setOptions;
 
@@ -35,9 +36,10 @@ app.use("/", indexRouter);
 app.use("/", cubeRouter);
 app.use("/", accessoryRouter);
 
-app.get("*", (req, res) => {
+app.get("*", async (req, res) => {
     res.render("404", {
         title: "Page Not Found",
+        isAuthenticated: await checkIfAuthenticated(req, res)
     })
 })
 

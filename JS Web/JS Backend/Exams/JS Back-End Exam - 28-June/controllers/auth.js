@@ -1,47 +1,27 @@
-const User = require("../../../Exams/JS Back-End Exam - 28-June/models/user.js");
+const User = require("../models/user.js");
 const bcrypt = require('bcrypt');
 const jwt = require("jsonwebtoken");
 
-const privateKey = "There-is-no-secret-:)"
+const privateKey = "There-is-no-end-only-new-beginnings-:)"
 
 const getUserByUsername = async (username) => {
     return User.findOne({username})
 }
 
-const errorFormatter = (err) => {
-    const errors = [];
-    for (const objName in err.errors) {
-        if (err.errors.hasOwnProperty(objName)) {
-            errors.push(err.errors[objName].message)
-        }
-    }
-
-    return errors;
-}
-
-const saveUser = async (username, password, repeatPassword) => {
-    if (password !== repeatPassword) {
-        return {error: "Passwords don't match."}
-    }
+const saveUser = async (username, password) => {
 
     //hashing
     const salt = await bcrypt.genSalt(10);
 
     const hashedPassword = await bcrypt.hash(password, salt);
 
-    try {
-        const user = new User({
-            username,
-            password: hashedPassword
-        })
+    const user = new User({
+        username,
+        password: hashedPassword
+    })
 
-        const userObj = await user.save();
-        return signJwt(userObj._id, userObj.username);
-    } catch (err) {
-        return {
-            error: errorFormatter(err),
-        }
-    }
+    const userObj = await user.save();
+    return signJwt(userObj._id, userObj.username);
 
 
 }
@@ -78,6 +58,7 @@ const checkIfAuthenticated = async (req) => {
 
     return !!status
 }
+
 const handleAuthenticated = async (req, res, next) => {
     const status = await checkIfAuthenticated(req)
     if (!status) {
@@ -101,8 +82,7 @@ module.exports = {
     saveUser,
     verifyUserPassword,
     decodeJwt,
-    handleAuthenticated,
-    handleGuest,
     checkIfAuthenticated,
-    errorFormatter
+    handleAuthenticated,
+    handleGuest
 }

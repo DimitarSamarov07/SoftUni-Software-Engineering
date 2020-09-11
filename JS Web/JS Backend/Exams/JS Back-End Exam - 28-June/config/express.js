@@ -12,5 +12,5 @@ module.exports = (app) => {
     app.use(bodyParser.urlencoded({extended: true}));
     app.use(cookieParser())
     app.use("/static", express.static("static"))
-    app.use("/node_modules", express.static("node_modules"));
+    app.use("/node_modules", express.static("node_modules"))
 };

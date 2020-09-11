@@ -1,0 +1,10 @@
+<section class="notifications error" style="display: none">
+    <p>{{error}}</p>
+</section>
+
+{{#if error}}
+    <script defer>
+        const section = document.querySelector(".notifications");
+        section.style.display = "block"
+    </script>
+{{/if}}

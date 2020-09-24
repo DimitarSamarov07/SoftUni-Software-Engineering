@@ -1,0 +1,13 @@
+{{#if isDriver}}
+    {{> driverTrippDetails}}
+{{else}}
+    {{#if hasJoined}}
+        {{> alreadyJoinedTrippDetails}}
+    {{else}}
+        {{#if capacityReached}}
+            {{> noAvailableTrippDetails}}
+        {{else}}
+            {{> availableTrippDetails}}
+        {{/if}}
+    {{/if}}
+{{/if}}

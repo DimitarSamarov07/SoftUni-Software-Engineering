@@ -1,0 +1,21 @@
+<header>
+    <nav>
+        <ul>
+            {{#if isAuthenticated}}
+                <li>
+                    <a href="/create">Create new offer</a>
+                </li>
+            {{/if}}
+            <li>
+                <a href="/">
+                    <img src="/static/sneakers.png" alt="">
+                </a>
+            </li>
+            {{#if isAuthenticated}}
+                <li>Welcome, <a href="/profile">{{loggedInUsername}}</a> |
+                    <a href="/logout">Logout</a>
+                </li>
+            {{/if}}
+        </ul>
+    </nav>
+</header>

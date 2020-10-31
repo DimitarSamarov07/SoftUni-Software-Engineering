@@ -1,0 +1,16 @@
+<div class="user-info">
+    <div>
+        <p>Email: <span>{{loggedInUsername}}</span></p> |
+        <p>My offers: <span>[{{purchases.length}}]</span></p> |
+        <p><a href="/logout">Logout</a></p>
+    </div>
+    <div class="shoes">
+        {{#each purchases}}
+            <div class="shoe">
+                <img src="{{imageUrl}}">
+                <h3>{{name}} <span>${{price}}</span></h3>
+            </div>
+        {{/each}}
+    </div>
+    <p class="total-profit">Total cost: <span>${{total}}</span></p>
+</div>

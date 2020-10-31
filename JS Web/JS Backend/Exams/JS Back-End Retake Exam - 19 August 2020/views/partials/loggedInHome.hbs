@@ -1,0 +1,10 @@
+<!--<h1>No shoes to display. Be the first to create a new offer...</h1>-->
+<div class="shoes">
+    {{#each shoes}}
+        <div class="shoe">
+            <img src="{{imageUrl}}">
+            <h3>{{name}}</h3>
+            <a href="/details/{{_id}}">Buy it for ${{price}}</a>
+        </div>
+    {{/each}}
+</div>

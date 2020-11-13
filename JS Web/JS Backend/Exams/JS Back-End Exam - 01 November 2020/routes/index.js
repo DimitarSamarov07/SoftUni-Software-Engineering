@@ -1,3 +1,4 @@
+
 const {checkIfAuthenticated, getCurrentUserUsernameFromRequest} = require("../controllers/auth.js");
 const {getAllCourses} = require("../controllers/course.js");
 

@@ -1,0 +1,19 @@
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css");
+
+.button {
+    font-family: Cormorant, sans-serif;
+    cursor: pointer;
+    border-radius: 5px;
+    background-color: green;
+    padding: 10px;
+    color: white;
+    margin-left: 3em;
+}
+
+.email {
+    background-color: orange;
+}
+
+p {
+    padding: 0.8em;
+}

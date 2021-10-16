@@ -1,0 +1,30 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: auto;
+    max-width: 80%;
+    background-color: rgb(236, 236, 236);
+}
+
+ul, li {
+    display: inline-block;
+}
+
+ul.gallery {
+    margin-left: 150px;
+    max-width: 70%;
+}
+
+li {
+    border: 8px solid black;
+    padding: 15px;
+    margin: 10px;
+    max-width: 30%;
+}
+
+img {
+    max-width: 100%;
+    vertical-align: middle;
+}

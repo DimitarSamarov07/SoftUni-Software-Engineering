@@ -1,0 +1,20 @@
+html {
+    font-family: Helvetica, sans-serif;
+    font-size: 16px;
+}
+
+
+body {
+    max-width: 20%;
+    margin: auto;
+}
+
+.advert {
+    color: white;
+    background-color: #444444;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border: 2px solid #444444;
+    border-radius: 10px;
+    padding: 10px;
+}

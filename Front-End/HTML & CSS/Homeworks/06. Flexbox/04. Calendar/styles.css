@@ -1,0 +1,81 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+    height: 80vh;
+}
+
+.container,
+.week,
+.notes {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.container {
+    max-width: 65vw;
+}
+
+span {
+    border: 1px solid black;
+    align-self: stretch;
+}
+
+
+.workweek,
+.weekend,
+.workday,
+.weekday {
+    display: flex;
+    justify-content: center;
+    padding: 30px 10px;
+}
+
+.notes,
+.week {
+    height: 80vh;
+}
+
+
+.workweek,
+.weekend {
+    flex: 1 1 100%;
+}
+
+.workday,
+.weekday {
+    font-size: 12px;
+}
+
+.workday {
+    flex: 1 1 20%;
+}
+
+.weekday {
+    flex: 1 1 50%;
+}
+
+.workday,
+.weekday {
+    font-size: 12px;
+}
+
+.notes {
+    flex-direction: column;
+}
+
+.extra {
+    text-transform: uppercase;
+}
+
+.notes > span {
+    height: 40vh;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+}

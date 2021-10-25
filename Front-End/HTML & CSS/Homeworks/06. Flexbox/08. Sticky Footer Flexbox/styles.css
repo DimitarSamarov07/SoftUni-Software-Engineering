@@ -1,0 +1,60 @@
+
+* {
+    box-sizing: border-box;
+}
+
+
+html {
+    font-family: Helvetica, sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+body {
+    display: flex;
+    height: 100vh;
+    margin: 0 auto;
+    background-color: rgb(238, 238, 238);
+    flex-flow: row wrap;
+    max-width: 100%;
+}
+
+header {
+    border-bottom: 2px solid black;
+    flex: 1 1 100%;
+}
+
+main {
+    flex: 1 1 70%;
+}
+
+footer {
+    flex: 1 1 100%;
+}
+
+main {
+    margin-left: 20px
+}
+
+.footer-content {
+    margin-left: 20px;
+}
+
+footer {
+    background-color: rgb(102, 102, 102);
+    color: rgb(255, 255, 255);
+}
+
+h1 {
+    font-size: 32px;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    margin-left: 20px;
+}
+
+.main-title {
+    font-size: 32px;
+    font-family: Georgia, serif;
+    line-height: 1.2;
+    font-weight: normal;
+}

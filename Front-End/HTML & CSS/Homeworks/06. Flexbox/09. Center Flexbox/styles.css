@@ -1,0 +1,29 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    margin: 0;
+    background-color: rgb(238, 238, 238);
+    justify-content: center;
+    height: 100vh;
+}
+
+.card {
+    background-color: rgb(255, 255, 255);
+    box-shadow: 0 0 1rem 0 rgba(0, 0, 0, 0.50);
+    border-radius: 10px;
+    border: 1px solid silver;
+    flex: 0 1 25%;
+    align-self: center;
+    padding: 10px;
+}
+
+h1 {
+    padding-left: 15px;
+}
+
+p {
+    padding: 0 15px 15px;
+}

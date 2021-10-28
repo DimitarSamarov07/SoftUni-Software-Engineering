@@ -1,0 +1,49 @@
+@media all and (max-width: 600px) {
+
+    html {
+        background-color: #f7f7f7;
+    }
+
+    .wrapper > .inner,
+    .feature,
+    .wrapper > .inner.narrow {
+        width: auto;
+    }
+
+    .banner h2 {
+        width: 90%;
+        padding: 30px 20px;
+        font-size: 1.6em;
+    }
+
+    .wrapper > .inner.narrow {
+        margin: auto 10px;
+    }
+
+    .banner {
+        padding: 1em 0 30px 0;;
+    }
+
+
+    header.major {
+        margin-bottom: auto;
+    }
+
+    ul.actions:nth-child(4) > li:nth-child(1),
+    ul.actions:nth-child(4) > li:nth-child(1) > input {
+        width: 100%;
+    }
+
+    .footer {
+        padding: 30px 0 0 0;
+    }
+
+    .footer .copyright {
+        margin-bottom: 40px;
+    }
+
+    .footer::before {
+        width: 80%;
+        left: 10%;
+    }
+}

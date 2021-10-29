@@ -1,0 +1,301 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+
+/*Generic*/
+html {
+    font-family: Lato, sans-serif;
+    font-size: 16px;
+}
+
+body {
+    margin: 0;
+}
+
+h1, h2, h3, h4 {
+    font-family: Montserrat, sans-serif;
+}
+
+.main-title {
+    color: white;
+    text-align: center;
+    padding-top: 40px;
+    margin-top: 0;
+}
+
+/*Header*/
+
+header {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    background-color: white;
+    align-items: center;
+    padding: 15px 10px;
+}
+
+
+.navigation-list {
+    display: flex;
+    list-style-type: none;
+}
+
+.navigation-list > li > a {
+    color: #666274;
+    text-align: center;
+    text-decoration: none;
+}
+
+.navigation-list > li {
+    display: flex;
+    justify-content: center;
+    margin: 10px 20px;
+}
+
+
+.logo-section {
+    padding-left: 70px;
+    width: 200px;
+}
+
+.logo-section > img {
+    padding-left: 30px;
+}
+
+/*Main*/
+.main-wrapper {
+    background: linear-gradient(180deg, #54546d 59%, #fff 50%);
+}
+
+.calc-img {
+    content: ' ';
+    position: absolute;
+    width: 169px;
+    height: 203px;
+    top: 169px;
+    left: -72px;
+}
+
+/*Cards*/
+
+.cards-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card {
+    display: flex;
+    background-color: white;
+    border-radius: 10px 10px 0 0;
+    padding: 20px;
+    margin: 30px;
+    width: 400px;
+    height: 250px;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+
+.card-footer {
+    display: flex;
+    flex-flow: column wrap;
+    margin: 30px;
+    padding: 20px 20px 5px;
+    width: 400px;
+    height: 100px;
+    color: white;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+
+.card-footer.green-gradient > p {
+    margin: 0;
+}
+
+.card-content {
+    display: flex;
+    flex-flow: row wrap;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+}
+
+.card-content > h3 {
+    font-size: 30px;
+    color: #54546D;
+    margin: 0;
+}
+
+.card-content > p {
+    text-align: center;
+    color: #565656;
+}
+
+
+.card-footer.green-gradient {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: center;
+    align-items: center;
+}
+
+
+.card-footer.cyan-gradient,
+.card-footer.purple-gradient {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    align-content: flex-end;
+}
+
+.card-footer > .footer-element:first-child {
+    border-right: 3px solid white;
+}
+
+.footer-element {
+    display: flex;
+    flex-flow: column wrap;
+    padding: 10px
+}
+
+.footer-element > h3 {
+    font-size: 20px;
+    align-self: center;
+    margin-bottom: 0;
+}
+
+
+.cards-list {
+    display: flex;
+    flex-flow: row wrap;
+    list-style-type: none;
+    justify-content: center;
+}
+
+.purple-button {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    background-color: #9A5DC6;
+    border-radius: 20px;
+    padding: 10px 30px;
+}
+
+/*Gradients*/
+
+.green-gradient {
+    background: #039B3E;
+    background: -webkit-linear-gradient(left, #039B3E, #4BD680);
+    background: -moz-linear-gradient(left, #039B3E, #4BD680);
+    background: linear-gradient(to right, #039B3E, #4BD680);
+}
+
+.cyan-gradient {
+    background: #4D6D88;
+    background: -webkit-linear-gradient(left, #4D6D88, #629ACF);
+    background: -moz-linear-gradient(left, #4D6D88, #629ACF);
+    background: linear-gradient(to right, #4D6D88, #629ACF);
+}
+
+.purple-gradient {
+    background: #4B38A5;
+    background: -webkit-linear-gradient(left, #4B38A5, #8D7EE1);
+    background: -moz-linear-gradient(left, #4B38A5, #8D7EE1);
+    background: linear-gradient(to right, #4B38A5, #8D7EE1);
+}
+
+/*Comparison section*/
+.in-person-vs-online {
+    display: flex;
+    flex-flow: row wrap;
+    max-width: 1000px;
+    margin: 60px auto 50px;
+}
+
+.comparison-table {
+    flex: 1 1 90%;
+    border-radius: 10px;
+    margin-top: 30px;
+}
+
+.comparison-element {
+    display: flex;
+    background-color: #F8F8F8;
+    flex-flow: row wrap;
+    padding: 10px;
+}
+
+.comparison-element:first-child {
+    border-top-left-radius: 8px;
+}
+
+.comparison-element:last-child {
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+}
+
+.comparison-element:nth-child(odd) {
+    background-color: #E6E6E6;
+}
+
+.comparison-element-description {
+    display: flex;
+    flex: 1 1 70%;
+    align-items: center;
+    color: #7A7A7A;
+}
+
+.comparison-element-description > p {
+    margin: 0;
+}
+
+.checks-or-crosses {
+    flex: 1 1 20%;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    align-items: center;
+}
+
+.in-person-vs-online-content > h2 {
+    color: #54546D;
+    margin-bottom: 10px;
+}
+
+.in-person-vs-online-content > p {
+    color: #565660;
+}
+
+
+/*Financing*/
+.financing-section {
+    display: flex;
+    margin-top: 100px;
+    flex-flow: wrap row;
+    justify-content: center;
+    align-items: center;
+}
+
+.financing-title {
+    color: #5B5656;
+    flex: 0 1 69.2%
+}
+
+.financing-content {
+    flex: 0 1 50%;
+    color: #959798;
+}
+
+/*Page Footer*/
+.page-footer {
+    color: #908FAB;
+    margin-top: 100px;
+    padding: 10px 20px;
+    background-color: #54546D;
+}
+
+.footer-text {
+    text-align: center;
+}

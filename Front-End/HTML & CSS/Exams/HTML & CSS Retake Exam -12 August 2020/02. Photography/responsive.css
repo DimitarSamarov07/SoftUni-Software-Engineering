@@ -1,1 +1,15 @@
-/* TODO: Add media queries */
+@media all and (max-width: 600px) {
+    .thumbnails {
+        flex-flow: column wrap;
+        align-items: center;
+    }
+
+    .thumbnails > div {
+        padding-bottom: 35px;
+        width: auto;
+    }
+
+    .thumbnails a img {
+        max-height: 40vh;
+    }
+}

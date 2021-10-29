@@ -1,0 +1,259 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css');
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    font-family: Lato, sans-serif;
+    font-size: 16px;
+}
+
+body {
+    margin: 0 auto;
+    max-width: 1400px;
+    font-family: 'Lato', sans-serif;
+    position: relative;
+    height: 200vh;
+}
+
+h1, h2, h3 {
+    font-family: Montserrat, sans-serif;
+    font-size: 16px;
+}
+
+/*Header*/
+.page-header {
+    display: flex;
+    background-color: white;
+    flex-flow: row wrap;
+    width: 80%;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+    text-align: center;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 10px 5px;
+    box-shadow: 0 0 3px 0 rgb(0 0 0 / 46%);
+}
+
+.logo-wrapper {
+    width: 13%;
+}
+
+.navigation-list {
+    list-style-type: none;
+    display: flex;
+    flex-flow: wrap row;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+}
+
+.navigation-list > li > a {
+    color: black;
+    text-decoration: none;
+}
+
+.navigation-list > li {
+    margin: 0 10px;
+}
+
+.profile-icon {
+    border-radius: 50%;
+    padding: 10px;
+    background-color: #42ABF8;
+}
+
+
+/*Certificates*/
+
+.certificates-section::before {
+    content: '';
+    opacity: .2;
+    z-index: -1;
+    background: url("./images/hero-certificates.jpg") no-repeat;
+    position: absolute;
+    top: 0;
+    padding-top: 156px;
+    width: 100%;
+    height: 180vh;
+}
+
+.certificates-section {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    align-items: center;
+    align-content: flex-end;
+    height: 50vh;
+}
+
+.certificates-content {
+    flex: 0 1 50%;
+}
+
+.web-dev-card {
+    background-color: #29394B;
+    color: white;
+    padding: 10px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.web-dev-title {
+    font-size: 25px;
+}
+
+.certificates-footer {
+    font-style: italic;
+    color: #68737F;
+    margin-top: 50px;
+}
+
+/*Diploma*/
+
+.diploma-section {
+    display: flex;
+    flex-flow: column wrap;
+    height: 700px;
+    align-items: center;
+    justify-content: center;
+}
+
+.diploma-title {
+    font-size: 25px;
+}
+
+.edu-description {
+    background-color: #F4F5F7;
+    padding: 10px;
+    color: #697582;
+}
+
+.diploma-footer {
+    color: #697582;
+}
+
+/*Sign up*/
+.sign-up-section::before {
+    content: '';
+    opacity: .8;
+    background: url(./images/sign-up-prompt-background.jpg) no-repeat top;
+    z-index: -1;
+    position: absolute;
+    width: 83%;
+    height: 30vh;
+    display: flex;
+    left: 76px;
+    border-radius: 4px;
+    box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.6);
+}
+
+.sign-up-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    color: white;
+}
+
+.sign-up-content {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin-bottom: 50px
+}
+
+.sign-up-title {
+    font-size: 25px;
+    margin-bottom: 0;
+}
+
+.buttons {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-items: center;
+    width: 20%;
+    justify-content: space-between;
+}
+
+.apply-btn {
+    padding: 10px 20px;
+    border-radius: 5px;
+    background-color: white;
+    color: #46ADF8;
+    text-decoration: none;
+    border-right: 2px solid white;
+}
+
+.curriculum-btn {
+    padding: 10px 30px;
+    border-radius: 5px;
+    border: 1px solid silver;
+    color: white;
+    text-decoration: none;
+}
+
+.separator {
+    border-left: 2px solid white;
+    height: 25px;
+}
+
+/*Footer*/
+.page-footer {
+    display: flex;
+    position: absolute;
+    padding: 10px 10px 0 10px;
+    bottom: 0;
+    width: 100%;
+    border-top: 2px solid black;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footer-nav-links,
+.footer-nav-social,
+.logo-and-content,
+.footer-nav {
+    display: flex;
+    flex-flow: row wrap;
+    list-style-type: none;
+}
+
+.logo-and-content {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: flex-start;
+    width: 35%;
+}
+
+.logo-and-content > img {
+    width: 150px;
+}
+
+.footer-nav {
+    align-items: center;
+}
+
+.footer-nav-links > li {
+    margin: 10px;
+}
+
+.footer-nav-links > li > a {
+    text-decoration: none;
+    color: black;
+}
+
+.logo-sub-title {
+    color: #CDCDCD;
+}

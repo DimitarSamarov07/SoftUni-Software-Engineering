@@ -1,0 +1,95 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css');
+
+/*Generic*/
+html {
+    font-family: Lato, sans-serif;
+    font-size: 16px;
+}
+
+h1, h2, h3, .price, .blue-price {
+    font-family: Montserrat, sans-serif;
+}
+
+/*Icon*/
+.fa-check {
+    color: #44a8f6;
+    margin: 10px;
+    font-size: 20px;
+}
+
+/*Card*/
+
+.card-wrapper {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-evenly;
+    align-items: stretch;
+    max-height: 80%;
+    margin-top: 50px;
+}
+
+.first-card-title {
+    flex: 1 0 100%;
+    margin-left: 10px;
+}
+
+.card {
+    flex: 0 0 31%;
+    display: flex;
+    flex-flow: wrap column;
+    background-color: #e1f1fb;
+    border-radius: 10px;
+    padding: 20px;
+}
+
+.card.first {
+    flex-flow: wrap row;
+}
+
+.card-element {
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+}
+
+.card-element-text {
+    color: #6D7071;
+    padding-right: 30px;
+}
+
+.card.second {
+    background-color: white;
+    border: 8px solid #44A9F8;
+    align-items: center;
+    justify-content: center;
+}
+
+.second-card-subtitle {
+    color: #7e7e7e;
+}
+
+.blue-btn {
+    display: flex;
+    flex-flow: column wrap;
+    align-items: center;
+    padding: 10px 30px;
+    border-radius: 10px;
+    background-color: #44A9F8;
+}
+
+.blue-btn > a {
+    color: white;
+    text-transform: uppercase;
+    text-decoration: none;
+}
+
+.price {
+    font-size: 20px;
+}
+
+.blue-price {
+    font-size: 52px;
+    font-weight: bold;
+    color: #44A9F8;
+}
